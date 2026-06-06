@@ -521,19 +521,9 @@ document.addEventListener('DOMContentLoaded', () => {
    THEME SWITCHER
    ========================================================================== */
 function initTheme() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+    // Force only light theme and clean up storage
+    document.body.classList.remove('dark-theme');
+    localStorage.removeItem('theme');
 }
 
 /* ==========================================================================
