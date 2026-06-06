@@ -240,23 +240,257 @@ function initMobileMenu() {
     });
 }
 
-// Simulated shipping address prompt
+// Simulated shipping address prompt & new modal selector
 function initAddressSelector() {
     const addressBtn = document.getElementById('header-address-btn');
     if (!addressBtn) return;
 
-    addressBtn.addEventListener('click', () => {
-        const address = prompt("Vui lòng nhập địa chỉ giao hàng của bạn:", addressBtn.textContent.trim());
-        if (address && address.trim()) {
-            addressBtn.innerHTML = `<i class="fa-solid fa-location-dot"></i> <span>Giao: ${address.trim()}</span>`;
-            // Sync with checkout address
-            const checkoutAddress = document.getElementById('address');
-            if (checkoutAddress) {
-                checkoutAddress.value = address.trim();
-                // Trigger label floating
-                checkoutAddress.dispatchEvent(new Event('input'));
+    const modal = document.getElementById('address-modal-overlay');
+    const closeBtn = document.getElementById('address-modal-close-btn');
+    const form = document.getElementById('address-selector-form');
+    
+    const citySelect = document.getElementById('addr-city');
+    const districtSelect = document.getElementById('addr-district');
+    const wardSelect = document.getElementById('addr-ward');
+    const detailInput = document.getElementById('addr-detail');
+    const gpsToggle = document.getElementById('gps-toggle');
+
+    if (!modal || !closeBtn || !form) return;
+
+    // Load saved address from localStorage
+    const savedAddress = localStorage.getItem('coop_delivery_address');
+    if (savedAddress) {
+        addressBtn.innerHTML = `<i class="fa-solid fa-location-dot"></i> <span>Giao: ${savedAddress}</span>`;
+        const checkoutAddress = document.getElementById('address');
+        if (checkoutAddress) {
+            checkoutAddress.value = savedAddress;
+        }
+    }
+
+    // Dynamic database of cities, districts, and wards
+    const addressData = {
+        HCMC: {
+            name: "Thành phố Hồ Chí Minh",
+            districts: {
+                Q1: {
+                    name: "Quận 1",
+                    wards: ["Phường Bến Nghé", "Phường Bến Thành", "Phường Đa Kao", "Phường Tân Định", "Phường Phạm Ngũ Lão"]
+                },
+                Q3: {
+                    name: "Quận 3",
+                    wards: ["Phường Võ Thị Sáu", "Phường 5", "Phường 9", "Phường 12", "Phường 14"]
+                },
+                QBT: {
+                    name: "Quận Bình Thạnh",
+                    wards: ["Phường 15", "Phường 17", "Phường 19", "Phường 21", "Phường 25", "Phường Gia Định"]
+                },
+                QPN: {
+                    name: "Quận Phú Nhuận",
+                    wards: ["Phường 1", "Phường 2", "Phường 5", "Phường 7", "Phường 9"]
+                },
+                QGV: {
+                    name: "Quận Gò Vấp",
+                    wards: ["Phường 1", "Phường 3", "Phường 5", "Phường 8", "Phường 11"]
+                }
+            }
+        },
+        Hanoi: {
+            name: "Thành phố Hà Nội",
+            districts: {
+                HK: {
+                    name: "Quận Hoàn Kiếm",
+                    wards: ["Phường Hàng Đào", "Phường Hàng Bạc", "Phường Tràng Tiền", "Phường Hàng Trống"]
+                },
+                BD: {
+                    name: "Quận Ba Đình",
+                    wards: ["Phường Quán Thánh", "Phường Kim Mã", "Phường Điện Biên", "Phường Thành Công"]
+                },
+                DD: {
+                    name: "Quận Đống Đa",
+                    wards: ["Phường Cát Linh", "Phường Láng Hạ", "Phường Quang Trung", "Phường Khương Thượng"]
+                },
+                CG: {
+                    name: "Quận Cầu Giấy",
+                    wards: ["Phường Dịch Vọng", "Phường Quan Hoa", "Phường Nghĩa Tân", "Phường Mai Dịch"]
+                }
+            }
+        },
+        Danang: {
+            name: "Thành phố Đà Nẵng",
+            districts: {
+                HC: {
+                    name: "Quận Hải Châu",
+                    wards: ["Phường Thuận Phước", "Phường Thạch Thang", "Phường Hải Châu I", "Phường Phước Ninh"]
+                },
+                TK: {
+                    name: "Quận Thanh Khê",
+                    wards: ["Phường Vĩnh Trung", "Phường Tân Chính", "Phường Chính Gián", "Phường An Khê"]
+                },
+                ST: {
+                    name: "Quận Sơn Trà",
+                    wards: ["Phường An Hải Bắc", "Phường An Hải Tây", "Phường Thọ Quang", "Phường Mân Thái"]
+                }
             }
         }
+    };
+
+    // Show modal
+    addressBtn.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // lock scroll
+    });
+
+    // Close modal
+    const closeModal = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // unlock scroll
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Populate Districts when City changes
+    citySelect.addEventListener('change', () => {
+        const cityKey = citySelect.value;
+        districtSelect.innerHTML = '<option value="" disabled selected>Chọn quận/ huyện</option>';
+        wardSelect.innerHTML = '<option value="" disabled selected>Chọn phường/ xã</option>';
+        wardSelect.disabled = true;
+
+        if (addressData[cityKey]) {
+            districtSelect.disabled = false;
+            const districts = addressData[cityKey].districts;
+            for (const key in districts) {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = districts[key].name;
+                districtSelect.appendChild(opt);
+            }
+        } else {
+            districtSelect.disabled = true;
+        }
+    });
+
+    // Populate Wards when District changes
+    districtSelect.addEventListener('change', () => {
+        const cityKey = citySelect.value;
+        const districtKey = districtSelect.value;
+        wardSelect.innerHTML = '<option value="" disabled selected>Chọn phường/ xã</option>';
+
+        if (addressData[cityKey] && addressData[cityKey].districts[districtKey]) {
+            wardSelect.disabled = false;
+            const wards = addressData[cityKey].districts[districtKey].wards;
+            wards.forEach(ward => {
+                const opt = document.createElement('option');
+                opt.value = ward;
+                opt.textContent = ward;
+                wardSelect.appendChild(opt);
+            });
+        } else {
+            wardSelect.disabled = true;
+        }
+    });
+
+    // GPS Geolocation Simulation
+    gpsToggle.addEventListener('change', () => {
+        if (gpsToggle.checked) {
+            showToast("Đang lấy vị trí hiện tại của bạn...");
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Success - fill with simulated reverse-geocoded local address
+                        setTimeout(() => {
+                            citySelect.value = "HCMC";
+                            citySelect.dispatchEvent(new Event('change'));
+                            
+                            districtSelect.value = "QBT";
+                            districtSelect.dispatchEvent(new Event('change'));
+                            
+                            wardSelect.value = "Phường Gia Định";
+                            detailInput.value = "131 Điện Biên Phủ";
+                            
+                            showToast("Đã bật định vị thành công!");
+                        }, 1200);
+                    },
+                    (error) => {
+                        // Error/Denied - fallback to default mock location
+                        setTimeout(() => {
+                            citySelect.value = "HCMC";
+                            citySelect.dispatchEvent(new Event('change'));
+                            
+                            districtSelect.value = "QBT";
+                            districtSelect.dispatchEvent(new Event('change'));
+                            
+                            wardSelect.value = "Phường Gia Định";
+                            detailInput.value = "131 Điện Biên Phủ";
+                            
+                            showToast("Sử dụng vị trí định sẵn: 131 Điện Biên Phủ, Bình Thạnh");
+                        }, 1200);
+                    }
+                );
+            } else {
+                // Not supported
+                showToast("Định vị không khả dụng, sử dụng địa chỉ mặc định.");
+                citySelect.value = "HCMC";
+                citySelect.dispatchEvent(new Event('change'));
+                districtSelect.value = "QBT";
+                districtSelect.dispatchEvent(new Event('change'));
+                wardSelect.value = "Phường Gia Định";
+                detailInput.value = "131 Điện Biên Phủ";
+            }
+        } else {
+            // Reset inputs
+            citySelect.value = "";
+            districtSelect.innerHTML = '<option value="" disabled selected>Chọn quận/ huyện</option>';
+            districtSelect.disabled = true;
+            wardSelect.innerHTML = '<option value="" disabled selected>Chọn phường/ xã</option>';
+            wardSelect.disabled = true;
+            detailInput.value = "";
+        }
+    });
+
+    // Handle form confirmation
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const cityKey = citySelect.value;
+        const districtKey = districtSelect.value;
+        
+        const cityName = addressData[cityKey] ? addressData[cityKey].name : '';
+        const districtName = (addressData[cityKey] && addressData[cityKey].districts[districtKey]) 
+            ? addressData[cityKey].districts[districtKey].name 
+            : '';
+        const wardName = wardSelect.value;
+        const detailName = detailInput.value.trim();
+
+        if (!cityName || !districtName || !wardName || !detailName) {
+            showToast("Vui lòng nhập đầy đủ thông tin địa chỉ.");
+            return;
+        }
+
+        const fullAddress = `${detailName}, ${wardName}, ${districtName}, ${cityName}`;
+        
+        // Update header address label
+        addressBtn.innerHTML = `<i class="fa-solid fa-location-dot"></i> <span>Giao: ${fullAddress}</span>`;
+        
+        // Save to localStorage
+        localStorage.setItem('coop_delivery_address', fullAddress);
+
+        // Sync with checkout form address field
+        const checkoutAddress = document.getElementById('address');
+        if (checkoutAddress) {
+            checkoutAddress.value = fullAddress;
+            // Trigger label floating (if applicable)
+            checkoutAddress.dispatchEvent(new Event('input'));
+        }
+
+        // Feedback toast
+        showToast("Đã cập nhật địa chỉ giao hàng thành công.");
+
+        // Close modal
+        closeModal();
     });
 }
 
