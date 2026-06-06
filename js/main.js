@@ -581,30 +581,30 @@ function initAddressSelector() {
         }
     }
 
-    // Dynamic database of cities, districts, and wards
+    // Dynamic database of cities, districts, and wards (Đã cập nhật theo đơn vị hành chính mới sau sáp nhập)
     const addressData = {
         HCMC: {
             name: "Thành phố Hồ Chí Minh",
             districts: {
                 Q1: {
                     name: "Quận 1",
-                    wards: ["Phường Bến Nghé", "Phường Bến Thành", "Phường Đa Kao", "Phường Tân Định", "Phường Phạm Ngũ Lão"]
+                    wards: ["Phường Sài Gòn", "Phường Tân Định", "Phường Bến Thành", "Phường Cầu Ông Lãnh"]
                 },
                 Q3: {
                     name: "Quận 3",
-                    wards: ["Phường Võ Thị Sáu", "Phường 5", "Phường 9", "Phường 12", "Phường 14"]
+                    wards: ["Phường Bàn Cờ", "Phường Xuân Hòa", "Phường Nhiêu Lộc"]
                 },
                 QBT: {
                     name: "Quận Bình Thạnh",
-                    wards: ["Phường 15", "Phường 17", "Phường 19", "Phường 21", "Phường 25", "Phường Gia Định"]
+                    wards: ["Phường Gia Định", "Phường Bình Thạnh", "Phường Bình Lợi Trung", "Phường Thạnh Mỹ Tây", "Phường Bình Quới", "Phường 3", "Phường 6", "Phường 15", "Phường 21", "Phường 24"]
                 },
                 QPN: {
                     name: "Quận Phú Nhuận",
-                    wards: ["Phường 1", "Phường 2", "Phường 5", "Phường 7", "Phường 9"]
+                    wards: ["Phường Đức Nhuận", "Phường Cầu Kiệu", "Phường Phú Nhuận"]
                 },
                 QGV: {
                     name: "Quận Gò Vấp",
-                    wards: ["Phường 1", "Phường 3", "Phường 5", "Phường 8", "Phường 11"]
+                    wards: ["Phường Hạnh Thông", "Phường An Nhơn", "Phường Gò Vấp", "Phường Thông Tây Hội", "Phường An Hội Đông", "Phường An Hội Tây", "Phường 4", "Phường 7", "Phường 9", "Phường 13"]
                 }
             }
         },
