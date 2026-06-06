@@ -283,6 +283,11 @@ button {
     flex-shrink: 0;
 }
 
+.logo svg {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Shipping Selector in Header (Pill button) */
 .header-address {
     display: flex;
@@ -1844,8 +1849,8 @@ textarea.form-input {
         max-width: 160px; /* Compress search bar */
     }
     
-    .logo {
-        font-size: 1.3rem;
+    .logo svg {
+        width: 135px;
     }
     
     .product-title-text {

@@ -32,19 +32,22 @@
             <!-- Left Logo -->
             <a href="#" class="logo" id="logo-link" aria-label="Co.opShopping Homepage">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="180" height="38" style="display: block;">
-                  <!-- Brand Mark Icon (Túi xách xanh, chữ C trắng nổi bật và ruy băng vàng) -->
-                  <g transform="translate(0, 5)">
-                    <!-- 1. Green Shopping Bag Body -->
-                    <path d="M 15 13 L 25 13 C 26.5 13, 27.5 14, 27.5 15.5 L 30.5 35 C 30.5 37, 28.5 38, 26.5 38 L 13.5 38 C 11.5 38, 9.5 37, 9.5 35 L 12.5 15.5 C 12.5 14, 13.5 13, 15 13 Z" fill="#34D399" />
-                    <!-- 2. White Handle on top -->
-                    <path d="M 16.5 13 C 16.5 7, 23.5 7, 23.5 13" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
-                    <!-- 3. White C shape wrapping bag -->
-                    <path d="M 23.5 15.5 A 11.5 11.5 0 1 0 23.5 36.5" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
-                    <!-- 4. Yellow Ribbon overlay (infinity loop) -->
-                    <path d="M 20 33 C 22.5 29.5, 27.5 29.5, 27.5 33 C 27.5 36.5, 22.5 36.5, 20 33 C 17.5 29.5, 12.5 29.5, 12.5 33 C 12.5 36.5, 17.5 36.5, 20 33 Z" fill="none" stroke="#FEF08A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <!-- 1. Text "Co." on the left -->
+                  <text x="12" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Co.</text>
+                  <!-- 2. Stylized Shopping Cart (Xe đẩy) in the middle -->
+                  <g>
+                    <!-- Cart Handle and Basket Outline -->
+                    <path d="M 52 14 L 57 14 C 58.5 14, 59.5 15, 60 16.5 L 63 26 C 63.5 27.5, 64.5 28.5, 66 28.5 L 81 28.5 C 82.5 28.5, 83.5 27.5, 84 26 L 87 16.5 C 87.5 15, 86.5 14, 85 14 L 60 14" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                    <!-- Cart Wheels -->
+                    <circle cx="67" cy="34" r="2.2" fill="#FFFFFF" />
+                    <circle cx="80" cy="34" r="2.2" fill="#FFFFFF" />
+                    <!-- "op" Loop inside Cart Basket -->
+                    <path d="M 73 21 C 73 17.5, 67 17.5, 67 21 C 67 24.5, 73 24.5, 73 21 C 73 17.5, 79 17.5, 79 21 C 79 24.5, 73 24.5, 73 21 M 79 17 L 79 27.5" fill="none" stroke="#34D399" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" />
                   </g>
-                  <!-- Typography (phối màu trắng / xanh lá sáng tương phản trên nền cam) -->
-                  <text x="42" y="32" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">Co<tspan fill="#34D399">.op</tspan><tspan fill="#FFFFFF" font-weight="800">Shopping</tspan></text>
+                  <!-- 3. Text "shopping" on the right -->
+                  <text x="92" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="400" fill="#FFFFFF">shopping</text>
+                  <!-- 4. Tagline "MODERN RETAIL EXPERIENCE" -->
+                  <text x="93" y="42" font-family="'Outfit', sans-serif" font-size="8" font-weight="600" letter-spacing="1.2" fill="rgba(255, 255, 255, 0.85)">MODERN RETAIL EXPERIENCE</text>
                 </svg>
             </a>
             
@@ -568,19 +571,22 @@
                 <div class="footer-column footer-about">
                     <a href="#" class="logo" aria-label="Co.opShopping Homepage">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="200" height="42" style="display: block;">
-                          <!-- Brand Mark Icon (Túi xách xanh, chữ C cam nổi bật và ruy băng vàng) -->
-                          <g transform="translate(0, 5)">
-                            <!-- 1. Green Shopping Bag Body -->
-                            <path d="M 15 13 L 25 13 C 26.5 13, 27.5 14, 27.5 15.5 L 30.5 35 C 30.5 37, 28.5 38, 26.5 38 L 13.5 38 C 11.5 38, 9.5 37, 9.5 35 L 12.5 15.5 C 12.5 14, 13.5 13, 15 13 Z" fill="#34D399" />
-                            <!-- 2. Orange Handle on top -->
-                            <path d="M 16.5 13 C 16.5 7, 23.5 7, 23.5 13" fill="none" stroke="var(--accent-primary)" stroke-width="2.5" stroke-linecap="round" />
-                            <!-- 3. Orange C shape wrapping bag -->
-                            <path d="M 23.5 15.5 A 11.5 11.5 0 1 0 23.5 36.5" fill="none" stroke="var(--accent-primary)" stroke-width="4.5" stroke-linecap="round" />
-                            <!-- 4. Yellow Ribbon overlay (infinity loop) -->
-                            <path d="M 20 33 C 22.5 29.5, 27.5 29.5, 27.5 33 C 27.5 36.5, 22.5 36.5, 20 33 C 17.5 29.5, 12.5 29.5, 12.5 33 C 12.5 36.5, 17.5 36.5, 20 33 Z" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                          <!-- 1. Text "Co." on the left -->
+                          <text x="12" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="var(--accent-secondary)">Co.</text>
+                          <!-- 2. Stylized Shopping Cart (Xe đẩy) in the middle -->
+                          <g>
+                            <!-- Cart Handle and Basket Outline -->
+                            <path d="M 52 14 L 57 14 C 58.5 14, 59.5 15, 60 16.5 L 63 26 C 63.5 27.5, 64.5 28.5, 66 28.5 L 81 28.5 C 82.5 28.5, 83.5 27.5, 84 26 L 87 16.5 C 87.5 15, 86.5 14, 85 14 L 60 14" fill="none" stroke="var(--accent-secondary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- Cart Wheels -->
+                            <circle cx="67" cy="34" r="2.2" fill="var(--accent-secondary)" />
+                            <circle cx="80" cy="34" r="2.2" fill="var(--accent-secondary)" />
+                            <!-- "op" Loop inside Cart Basket -->
+                            <path d="M 73 21 C 73 17.5, 67 17.5, 67 21 C 67 24.5, 73 24.5, 73 21 C 73 17.5, 79 17.5, 79 21 C 79 24.5, 73 24.5, 73 21 M 79 17 L 79 27.5" fill="none" stroke="#34D399" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" />
                           </g>
-                          <!-- Typography (phối màu cam / xanh lá sáng tương phản trên nền sáng/tối) -->
-                          <text x="42" y="32" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="var(--accent-primary)">Co<tspan fill="#34D399">.op</tspan><tspan fill="var(--text-primary)" font-weight="800">Shopping</tspan></text>
+                          <!-- 3. Text "shopping" on the right -->
+                          <text x="92" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="400" fill="var(--text-primary)">shopping</text>
+                          <!-- 4. Tagline "MODERN RETAIL EXPERIENCE" -->
+                          <text x="93" y="42" font-family="'Outfit', sans-serif" font-size="8" font-weight="600" letter-spacing="1.2" fill="var(--text-muted)">MODERN RETAIL EXPERIENCE</text>
                         </svg>
                     </a>
                     <p class="footer-desc">Siêu thị thực phẩm hữu cơ, hàng FMCG cao cấp hàng đầu Việt Nam. Mang bữa ăn tươi ngon và cuộc sống xanh đến mọi gia đình.</p>
