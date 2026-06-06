@@ -9,7 +9,7 @@ const products = [
         price: 320000,
         oldPrice: 380000,
         unit: "Khay 500g",
-        category: "fresh",
+        category: "meat",
         image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=400&q=80",
         badge: "Bán chạy",
         badgeType: "sale",
@@ -24,7 +24,7 @@ const products = [
         price: 135000,
         oldPrice: 160000,
         unit: "Hộp 250g",
-        category: "fresh",
+        category: "fruit",
         image: "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?auto=format&fit=crop&w=400&q=80",
         badge: "Mới",
         badgeType: "fresh",
@@ -39,7 +39,7 @@ const products = [
         price: 35000,
         oldPrice: null,
         unit: "Túi 1kg",
-        category: "fresh",
+        category: "fruit",
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=400&q=80",
         badge: "Tươi ngon",
         badgeType: "fresh",
@@ -63,7 +63,7 @@ const products = [
         price: 145000,
         oldPrice: null,
         unit: "Hộp 350g",
-        category: "packaged",
+        category: "dryfood",
         image: "https://images.unsplash.com/photo-1508061461508-cb18c242f556?auto=format&fit=crop&w=400&q=80",
         badge: "Độc quyền",
         badgeType: "fresh",
@@ -110,29 +110,29 @@ const products = [
     },
     {
         id: 9,
-        name: "Nước Rửa Chén Sinh Học Tinh Dầu Quế Co.opshopping",
-        price: 75000,
-        oldPrice: 90000,
-        unit: "Can 1.2L",
-        category: "household",
-        image: "https://images.unsplash.com/photo-1622060873536-a67bcfc6d482?auto=format&fit=crop&w=400&q=80",
-        badge: "Eco-friendly",
-        badgeType: "fresh",
+        name: "Kem Sữa Chua Trái Cây Mövenpick Premium",
+        price: 48000,
+        oldPrice: 60000,
+        unit: "Hũ 100g",
+        category: "yogurt",
+        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80",
+        badge: "-20%",
+        badgeType: "sale",
         flashSale: true,
-        flashPrice: 49000,
-        soldQty: 8,
-        totalQty: 25
+        flashPrice: 38000,
+        soldQty: 14,
+        totalQty: 30
     },
     {
         id: 10,
-        name: "Nước Lau Sàn Thảo Mộc Tinh Dầu Sả Chanh",
-        price: 55000,
+        name: "Bánh Mì Hoa Cúc Harrys Brioche Pháp",
+        price: 135000,
         oldPrice: null,
-        unit: "Can 1L",
-        category: "household",
-        image: "https://images.unsplash.com/photo-1610557892470-76d74759607f?auto=format&fit=crop&w=400&q=80",
-        badge: "",
-        badgeType: "",
+        unit: "Ổ 500g",
+        category: "bakery",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
+        badge: "Thơm ngon",
+        badgeType: "fresh",
         flashSale: false
     }
 ];
@@ -294,7 +294,7 @@ function renderProducts() {
 }
 
 function initProductFilter() {
-    const tabs = document.querySelectorAll('.category-tab-btn');
+    const tabs = document.querySelectorAll('.sidebar-menu-item');
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
             tabs.forEach(btn => btn.classList.remove('active'));
