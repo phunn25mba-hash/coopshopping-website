@@ -2071,6 +2071,18 @@ textarea.form-input {
     border: 1px solid var(--border-color);
 }
 
+.menu-img-svg {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+}
+
 .menu-icon {
     width: 28px;
     height: 28px;
