@@ -1159,7 +1159,7 @@ function renderProducts() {
                     ${oldPriceHTML}
                 </div>
                 ${savingHTML}
-                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: rgba(224, 242, 254, 0.6); color: #0284C7; border: 1px solid rgba(2, 132, 199, 0.15); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
+                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: var(--accent-light); color: var(--accent-primary); border: 1px solid rgba(255, 118, 0, 0.15); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Mua</span>
                 </button>
@@ -1169,12 +1169,12 @@ function renderProducts() {
         // Add hover effects dynamically
         const btn = card.querySelector('.add-to-cart-btn');
         btn.addEventListener('mouseover', () => {
-            btn.style.background = '#0284C7';
+            btn.style.background = 'var(--accent-primary)';
             btn.style.color = '#FFFFFF';
         });
         btn.addEventListener('mouseout', () => {
-            btn.style.background = 'rgba(224, 242, 254, 0.6)';
-            btn.style.color = '#0284C7';
+            btn.style.background = 'var(--accent-light)';
+            btn.style.color = 'var(--accent-primary)';
         });
 
         grid.appendChild(card);
