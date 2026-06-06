@@ -825,6 +825,97 @@ function renderProducts() {
     const grid = document.getElementById('products-grid');
     if (!grid) return;
 
+    // 1. DYNAMIC CATEGORY HEADER BANNER
+    let banner = document.getElementById('category-header-banner');
+    if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'category-header-banner';
+        banner.className = 'category-header-banner';
+        grid.parentNode.insertBefore(banner, grid);
+    }
+
+    const categoryBanners = {
+        all: {
+            title: "Gian Hàng Khuyến Mãi",
+            desc: "Sản phẩm được tuyển chọn kỹ lưỡng, đảm bảo độ tươi mới tuyệt đối và hạn sử dụng xa.",
+            image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
+        },
+        fruit: {
+            title: "Thế Giới Trái Cây",
+            desc: "Trái cây nhập khẩu trực tiếp từ các nhà vườn danh tiếng toàn cầu, chuẩn VietGAP, tươi sạch mỗi ngày.",
+            image: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&w=1200&q=80"
+        },
+        fresh: {
+            title: "Rau Củ Quả Sạch",
+            desc: "Rau củ hữu cơ chuẩn GlobalGAP, thu hoạch mới mỗi sáng sớm, mang nguồn dinh dưỡng tự nhiên đến gia đình bạn.",
+            image: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&w=1200&q=80"
+        },
+        meat: {
+            title: "Thịt & Cá & Trứng & Hải Sản",
+            desc: "Nguồn đạm cao cấp, đạt chứng nhận an toàn thực phẩm VietGAP, kiểm dịch nghiêm ngặt.",
+            image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=1200&q=80"
+        },
+        yogurt: {
+            title: "Kem & Sữa Chua Trái Cây",
+            desc: "Thơm béo, mát lạnh ngọt ngào từ các thương hiệu sữa tươi hàng đầu Việt Nam và Châu Âu.",
+            image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80"
+        },
+        beverage: {
+            title: "Sữa & Bơ & Phô Mai Dinh Dưỡng",
+            desc: "Bổ dung canxi và chất béo tự nhiên cho bé và cả gia đình tràn đầy năng lượng.",
+            image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=80"
+        },
+        packaged: {
+            title: "Mì, Bún & Thực Phẩm Khô Tiện Lợi",
+            desc: "Đa dạng hương vị mì gói, bún phở ăn liền hảo hạng cho bữa ăn chuẩn vị nhanh gọn.",
+            image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=1200&q=80"
+        },
+        frozen: {
+            title: "Thực Phẩm Đông Mát",
+            desc: "Sủi cảo, chả giò giòn tan, khoai tây chiên McCain nhập khẩu chế biến nhanh chóng.",
+            image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
+        },
+        snacks: {
+            title: "Bánh Kẹo & Đồ Ăn Vặt Hấp Dẫn",
+            desc: "Món ngon lý tưởng cho mọi buổi xế chiều, giòn tan ngọt ngào đầy phấn khởi.",
+            image: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=1200&q=80"
+        },
+        bakery: {
+            title: "Bánh Tươi & Ngũ Cốc Bữa Sáng",
+            desc: "Bánh mì hoa cúc thơm nồng, bánh sừng bò croissant Pháp hảo hạng và ngũ cốc dinh dưỡng.",
+            image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80"
+        },
+        condiment: {
+            title: "Gia Vị Đậm Đà Hảo Hạng",
+            desc: "Nâng tầm món ăn Việt với nước mắm cốt nhĩ Phú Quốc, hạt nêm từ xương ống ngọt lịm.",
+            image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?auto=format&fit=crop&w=1200&q=80"
+        },
+        drink: {
+            title: "Nước Giải Khát & Đồ Uống Có Cồn",
+            desc: "Giải nhiệt tức thì với nước ép lựu nguyên chất, bia thủ công thơm lừng bọt mịn.",
+            image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1200&q=80"
+        },
+        household: {
+            title: "Đồ Dùng Gia Đình Sinh Học",
+            desc: "Chăm sóc tổ ấm thân yêu bằng các sản phẩm lau dọn, rửa chén từ tinh dầu thiên nhiên.",
+            image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80"
+        },
+        personalcare: {
+            title: "Chăm Sóc Cá Nhân Thảo Dược",
+            desc: "Sữa tắm organic, dầu gội ngăn rụng tóc thảo mộc nhẹ dịu cho da đầu và cơ thể.",
+            image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80"
+        }
+    };
+
+    const bannerConfig = categoryBanners[currentCategory] || categoryBanners.all;
+    banner.style.backgroundImage = `url('${bannerConfig.image}')`;
+    banner.innerHTML = `
+        <div class="category-header-banner-content">
+            <h2 class="category-header-banner-title">${bannerConfig.title}</h2>
+            <p class="category-header-banner-desc">${bannerConfig.desc}</p>
+        </div>
+    `;
+
     grid.innerHTML = '';
 
     // Filter items
@@ -844,36 +935,248 @@ function renderProducts() {
         return;
     }
 
+    // 2. PREPEND LEFT VERTICAL PROMO BANNER (Kingfoodmart / Coop Layout)
+    const gridPromoBanners = {
+        all: {
+            badge: "Giá Chấn Động",
+            title: "Ưu Đãi Đặc Biệt",
+            subtitle: "3 Ngày Cuối Tuần",
+            price: "89.000đ",
+            productId: 2,
+            image: "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FFF5F5 0%, #FEE2E2 100%)",
+            titleColor: "#991B1B",
+            subColor: "#7F1D1D"
+        },
+        fruit: {
+            badge: "Giá Chấn Động",
+            title: "Dâu Tây Đà Lạt",
+            subtitle: "VietGAP Hộp 250g",
+            price: "99.000đ",
+            productId: 2,
+            image: "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%)",
+            titleColor: "#92400E",
+            subColor: "#78350F"
+        },
+        fresh: {
+            badge: "Hot Deal",
+            title: "Súp Lơ Xanh",
+            subtitle: "Baby Organic Gói 300g",
+            price: "45.000đ",
+            productId: 16,
+            image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #F0FDF4 0%, #D1FAE5 100%)",
+            titleColor: "#065F46",
+            subColor: "#047857"
+        },
+        meat: {
+            badge: "Giá Chấn Động",
+            title: "Bò Mỹ Premium",
+            subtitle: "Thăn Bò USDA Khay 500g",
+            price: "269.000đ",
+            productId: 1,
+            image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FFF5F5 0%, #FEE2E2 100%)",
+            titleColor: "#991B1B",
+            subColor: "#7F1D1D"
+        },
+        yogurt: {
+            badge: "Món Ngon Lẻ",
+            title: "Kem Mövenpick",
+            subtitle: "Kem Thụy Sĩ Hũ 100g",
+            price: "38.000đ",
+            productId: 9,
+            image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FDF4FF 0%, #F3E8FF 100%)",
+            titleColor: "#6B21A8",
+            subColor: "#581C87"
+        },
+        beverage: {
+            badge: "Dinh Dưỡng Cao",
+            title: "Sữa Horizon",
+            subtitle: "Organic Nguyên Chất 946ml",
+            price: "62.000đ",
+            productId: 6,
+            image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#075985",
+            subColor: "#0369A1"
+        },
+        packaged: {
+            badge: "Chuẩn Vị Ý",
+            title: "Mì Ý Spaghettini",
+            subtitle: "De Cecco Hộp 500g",
+            price: "68.000đ",
+            productId: 4,
+            image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FEF9C3 0%, #FEF08A 100%)",
+            titleColor: "#854D0E",
+            subColor: "#713F12"
+        },
+        frozen: {
+            badge: "Giảm 18%",
+            title: "Sủi Cảo Tôm Thịt",
+            subtitle: "CJ Cầu Tre Gói 400g",
+            price: "65.000đ",
+            productId: 25,
+            image: "https://images.unsplash.com/photo-1496116211227-7cf39588bf1e?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%)",
+            titleColor: "#1E40AF",
+            subColor: "#1E3A8A"
+        },
+        snacks: {
+            badge: "Giòn Tan",
+            title: "Hạt Điều Rang",
+            subtitle: "Organic Vỏ Lụa Hộp 350g",
+            price: "145.000đ",
+            productId: 5,
+            image: "https://images.unsplash.com/photo-1508061461508-cb18c242f556?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FDF2F8 0%, #FCE7F3 100%)",
+            titleColor: "#9D174D",
+            subColor: "#831843"
+        },
+        bakery: {
+            badge: "Bánh Tươi",
+            title: "Bánh Mì Hoa Cúc",
+            subtitle: "Harrys Brioche Ổ 500g",
+            price: "135.000đ",
+            productId: 10,
+            image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%)",
+            titleColor: "#9A3412",
+            subColor: "#7C2D12"
+        },
+        condiment: {
+            badge: "Đậm Đà",
+            title: "Nước Mắm Phú Quốc",
+            subtitle: "Thuận Phát Cốt Nhĩ 620ml",
+            price: "85.000đ",
+            productId: 32,
+            image: "https://images.unsplash.com/photo-1589135306090-e555aa88bcca?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #F5F5F4 0%, #E7E5E4 100%)",
+            titleColor: "#44403C",
+            subColor: "#292524"
+        },
+        drink: {
+            badge: "Cực Đã",
+            title: "Bia Thủ Công",
+            subtitle: "Jasmine IPA Lon 330ml",
+            price: "52.000đ",
+            productId: 8,
+            image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%)",
+            titleColor: "#92400E",
+            subColor: "#78350F"
+        },
+        household: {
+            badge: "Sinh Học",
+            title: "Rửa Chén Aura",
+            subtitle: "Tinh Dầu Quế Can 1.2L",
+            price: "75.000đ",
+            productId: 11,
+            image: "https://images.unsplash.com/photo-1622060873536-a67bcfc6d482?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)",
+            titleColor: "#334155",
+            subColor: "#1E293B"
+        },
+        personalcare: {
+            badge: "Thảo Mộc",
+            title: "Sữa Tắm Sả Chanh",
+            subtitle: "Chai 500ml Thư Giãn",
+            price: "99.000đ",
+            productId: 12,
+            image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80",
+            bg: "linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%)",
+            titleColor: "#065F46",
+            subColor: "#047857"
+        }
+    };
+
+    const promoConfig = gridPromoBanners[currentCategory] || gridPromoBanners.all;
+    const promoCard = document.createElement('div');
+    promoCard.className = 'grid-promo-banner';
+    promoCard.style.background = promoConfig.bg;
+    promoCard.innerHTML = `
+        <div class="grid-promo-banner-header">
+            <span class="grid-promo-banner-badge">${promoConfig.badge}</span>
+            <h3 class="grid-promo-banner-title" style="color: ${promoConfig.titleColor};">${promoConfig.title}</h3>
+            <p class="grid-promo-banner-subtitle" style="color: ${promoConfig.subColor};">${promoConfig.subtitle}</p>
+        </div>
+        <img src="${promoConfig.image}" alt="${promoConfig.title}" class="grid-promo-banner-image">
+        <div class="grid-promo-banner-price-box">
+            <span class="grid-promo-banner-price-label" style="color: ${promoConfig.subColor};">Giá chỉ từ</span>
+            <div class="grid-promo-banner-price">${promoConfig.price}</div>
+        </div>
+        <button class="grid-promo-banner-btn" onclick="handleAddToCart(event, ${promoConfig.productId})">Đặt Ngay</button>
+    `;
+    grid.appendChild(promoCard);
+
+    // 3. RENDER PRODUCT CARDS
     filtered.forEach(p => {
         const card = document.createElement('div');
         card.classList.add('product-card', 'reveal', 'active');
         
-        const badgeHTML = p.badge 
-            ? `<span class="product-badge-tag ${p.badgeType === 'sale' ? 'badge-sale' : 'badge-fresh'}">${p.badge}</span>` 
-            : '';
+        let discountTagHTML = '';
+        let promoBannerHTML = '';
+        let savingHTML = '';
+        let tagLinkHTML = '';
+        
+        // If product is on sale (has oldPrice or flashSale)
+        const isSale = p.oldPrice || p.flashSale;
+        const currentPrice = p.flashSale ? p.flashPrice : p.price;
+        const originalPrice = p.oldPrice || p.price;
+        
+        if (isSale && originalPrice > currentPrice) {
+            const discountPercent = Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+            discountTagHTML = `<span class="product-card-discount-tag">-${discountPercent}%</span>`;
+            promoBannerHTML = `<span class="product-card-promo-banner">${p.flashSale ? 'Flash Sale' : 'Giá Chấn Động'}</span>`;
+            savingHTML = `<span class="product-card-saving-text">Tiết kiệm ${formatCurrency(originalPrice - currentPrice)}</span>`;
+            tagLinkHTML = `<span class="product-card-tag-link">${p.flashSale ? 'Giá sốc có hạn!' : 'Ưu đãi cuối tuần!'}</span>`;
+        } else {
+            // Default fresh badge or label
+            if (p.badge) {
+                promoBannerHTML = `<span class="product-card-promo-banner" style="color: #10B981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.06);">${p.badge}</span>`;
+            }
+        }
             
-        const oldPriceHTML = p.oldPrice 
-            ? `<span class="product-price-original">${formatCurrency(p.oldPrice)}</span>` 
+        const oldPriceHTML = (isSale && originalPrice > currentPrice)
+            ? `<span class="product-price-original" style="font-size:0.75rem; text-decoration:line-through; color:var(--text-muted); margin-left:0.5rem;">${formatCurrency(originalPrice)}</span>` 
             : '';
 
         card.innerHTML = `
-            ${badgeHTML}
-            <div class="product-image-box">
+            ${discountTagHTML}
+            ${promoBannerHTML}
+            <div class="product-image-box" style="margin-top: 1.25rem;">
                 <img src="${p.image}" alt="${p.name}" loading="lazy" width="200" height="180">
             </div>
-            <div class="product-body">
+            <div class="product-body" style="padding: 0.75rem 0.5rem 0.5rem 0.5rem;">
                 <span class="product-unit-text">${p.unit}</span>
-                <h3 class="product-title-text" title="${p.name}">${p.name}</h3>
-                <div class="product-price-box">
-                    <span class="product-price-current">${formatCurrency(p.price)}</span>
+                <h3 class="product-title-text" title="${p.name}" style="font-size:0.85rem; height:2.8em; margin-bottom:0.4rem;">${p.name}</h3>
+                ${tagLinkHTML}
+                <div class="product-price-box" style="margin-top:0.4rem; margin-bottom:0.4rem; align-items: baseline; flex-wrap: wrap;">
+                    <span class="product-price-current" style="font-size: 0.95rem; font-weight: 800; color: #EF4444;">${formatCurrency(currentPrice)}</span>
                     ${oldPriceHTML}
                 </div>
-                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})">
+                ${savingHTML}
+                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: rgba(224, 242, 254, 0.6); color: #0284C7; border: 1px solid rgba(2, 132, 199, 0.15); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Thêm vào giỏ</span>
+                    <span>Mua</span>
                 </button>
             </div>
         `;
+        
+        // Add hover effects dynamically
+        const btn = card.querySelector('.add-to-cart-btn');
+        btn.addEventListener('mouseover', () => {
+            btn.style.background = '#0284C7';
+            btn.style.color = '#FFFFFF';
+        });
+        btn.addEventListener('mouseout', () => {
+            btn.style.background = 'rgba(224, 242, 254, 0.6)';
+            btn.style.color = '#0284C7';
+        });
+
         grid.appendChild(card);
     });
 }

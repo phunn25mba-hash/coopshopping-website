@@ -598,8 +598,8 @@ button {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
 }
 
 .product-card {
@@ -612,6 +612,7 @@ button {
     transition: all var(--transition-normal);
     display: flex;
     flex-direction: column;
+    padding: 0.5rem;
 }
 
 .product-card:hover {
@@ -2548,5 +2549,253 @@ textarea.form-input {
         gap: 1rem;
     }
 }
+
+/* ==========================================================================
+   CATEGORY HEADER BANNER & GRID PROMO BANNER (COOP LAYOUT)
+   ========================================================================== */
+
+/* Category Header Banner */
+.category-header-banner {
+    width: 100%;
+    height: 140px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background-size: cover;
+    background-position: center;
+}
+
+.category-header-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(15, 118, 110, 0.9) 0%, rgba(21, 128, 61, 0.4) 100%);
+    z-index: 1;
+}
+
+.category-header-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.category-header-banner-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.35rem;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.category-header-banner-desc {
+    font-size: 0.95rem;
+    opacity: 0.95;
+    font-weight: 500;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* Grid Promo Banner (First Column, spans 2 rows) */
+.grid-promo-banner {
+    grid-row: span 2;
+    background: linear-gradient(180deg, #FFFAF0 0%, #FFF3E0 100%);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: var(--border-radius-md);
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+}
+
+.grid-promo-banner-header {
+    width: 100%;
+}
+
+.grid-promo-banner-badge {
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.grid-promo-banner-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #C2410C;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.grid-promo-banner-subtitle {
+    font-size: 0.75rem;
+    color: #9A3412;
+    opacity: 0.85;
+    font-weight: 600;
+}
+
+.grid-promo-banner-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    margin: 1rem 0;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.08));
+}
+
+.grid-promo-banner-price-box {
+    margin-bottom: 0.75rem;
+}
+
+.grid-promo-banner-price-label {
+    font-size: 0.7rem;
+    color: #9A3412;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.grid-promo-banner-price {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #EF4444;
+    line-height: 1;
+}
+
+.grid-promo-banner-btn {
+    width: 100%;
+    background: #EF4444;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.grid-promo-banner-btn:hover {
+    background: #DC2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+}
+
+/* Product Card Promotion Badges (Kingfoodmart Style) */
+.product-card {
+    position: relative;
+    border-color: rgba(0,0,0,0.05);
+}
+
+.product-card-discount-tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+.product-card-promo-banner {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(239, 68, 68, 0.08);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+.product-card-tag-link {
+    color: #3B82F6;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+    display: inline-block;
+}
+
+.product-card-saving-text {
+    font-size: 0.75rem;
+    color: #10B981;
+    font-weight: 700;
+    margin-top: 0.15rem;
+}
+
+/* Override responsive grid variables */
+@media (max-width: 1200px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    .grid-promo-banner {
+        grid-column: span 2;
+        grid-row: span 1;
+        flex-direction: row;
+        text-align: left;
+        min-height: auto;
+        padding: 1rem 1.5rem;
+        gap: 1.5rem;
+    }
+    .grid-promo-banner-image {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+    .grid-promo-banner-header {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .grid-promo-banner {
+        grid-column: span 2;
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 1.25rem 1rem;
+        gap: 1rem;
+    }
+    .grid-promo-banner-image {
+        width: 90px;
+        height: 90px;
+        margin: 0.5rem auto;
+    }
+}
+
 
 
