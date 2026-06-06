@@ -87,7 +87,7 @@ const products = [
         price: 98000,
         oldPrice: 120000,
         unit: "Chai 1L",
-        category: "beverage",
+        category: "softdrink",
         image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&q=80",
         badge: "-18%",
         badgeType: "sale",
@@ -102,10 +102,10 @@ const products = [
         price: 52000,
         oldPrice: null,
         unit: "Lon 330ml",
-        category: "beverage",
+        category: "alcohol",
         image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=400&q=80",
-        badge: "",
-        badgeType: "",
+        badge: "Cực hot",
+        badgeType: "sale",
         flashSale: false
     },
     {
@@ -134,6 +134,33 @@ const products = [
         badge: "Thơm ngon",
         badgeType: "fresh",
         flashSale: false
+    },
+    {
+        id: 11,
+        name: "Nước Rửa Chén Sinh Học Tinh Dầu Quế Co.opshopping",
+        price: 75000,
+        oldPrice: 90000,
+        unit: "Can 1.2L",
+        category: "household",
+        image: "https://images.unsplash.com/photo-1622060873536-a67bcfc6d482?auto=format&fit=crop&w=400&q=80",
+        badge: "Sinh học",
+        badgeType: "fresh",
+        flashSale: false
+    },
+    {
+        id: 12,
+        name: "Sữa Tắm Thảo Mộc Đậm Đặc Sả Chanh & Bạc Hà",
+        price: 125000,
+        oldPrice: 150000,
+        unit: "Chai 500ml",
+        category: "personalcare",
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80",
+        badge: "Organic",
+        badgeType: "fresh",
+        flashSale: true,
+        flashPrice: 99000,
+        soldQty: 5,
+        totalQty: 15
     }
 ];
 

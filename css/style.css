@@ -1994,6 +1994,23 @@ textarea.form-input {
     top: calc(var(--header-height) + 20px);
     box-shadow: var(--card-shadow);
     z-index: 10;
+    max-height: calc(100vh - var(--header-height) - 40px);
+    overflow-y: auto;
+}
+
+/* Slim modern scrollbar for sticky sidebar */
+.store-sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+.store-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.store-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--border-radius-full);
+}
+.store-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
 }
 
 .sidebar-title {
