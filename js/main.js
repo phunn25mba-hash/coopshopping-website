@@ -812,120 +812,84 @@ function initAddressSelector() {
    PRODUCT RENDERING & CATEGORIES FILTER
    ========================================================================== */
 function renderProducts() {
-    const grid = document.getElementById('products-grid');
-    if (!grid) return;
+    const container = document.getElementById('categories-container');
+    if (!container) return;
 
-    // 1. DYNAMIC CATEGORY HEADER BANNER
-    let banner = document.getElementById('category-header-banner');
-    if (!banner) {
-        banner = document.createElement('div');
-        banner.id = 'category-header-banner';
-        banner.className = 'category-header-banner';
-        grid.parentNode.insertBefore(banner, grid);
-    }
+    container.innerHTML = '';
 
     const categoryBanners = {
         all: {
-            title: "Gian Hàng Khuyến Mãi",
-            desc: "Sản phẩm được tuyển chọn kỹ lưỡng, đảm bảo độ tươi mới tuyệt đối và hạn sử dụng xa.",
+            title: "Khuyến Mãi HOT Cực Khủng",
+            desc: "Sản phẩm giảm giá đặc biệt sâu, đảm bảo tươi ngon và chất lượng hàng đầu.",
             image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
         },
         fruit: {
             title: "Thế Giới Trái Cây",
-            desc: "Trái cây nhập khẩu trực tiếp từ các nhà vườn danh tiếng toàn cầu, chuẩn VietGAP, tươi sạch mỗi ngày.",
+            desc: "Trái cây nhập khẩu chuẩn VietGAP, tươi sạch ngọt lành mỗi ngày.",
             image: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&w=1200&q=80"
         },
         fresh: {
-            title: "Rau Củ Quả Sạch",
-            desc: "Rau củ hữu cơ chuẩn GlobalGAP, thu hoạch mới mỗi sáng sớm, mang nguồn dinh dưỡng tự nhiên đến gia đình bạn.",
+            title: "Rau Củ Quả Tươi Sạch",
+            desc: "Rau hữu cơ chuẩn GlobalGAP, thu hoạch mới mỗi sáng sớm.",
             image: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&w=1200&q=80"
         },
         meat: {
             title: "Thịt & Cá & Trứng & Hải Sản",
-            desc: "Nguồn đạm cao cấp, đạt chứng nhận an toàn thực phẩm VietGAP, kiểm dịch nghiêm ngặt.",
+            desc: "Nguồn đạm cao cấp, an toàn vệ sinh, kiểm dịch nghiêm ngặt.",
             image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=1200&q=80"
         },
         yogurt: {
             title: "Kem & Sữa Chua Trái Cây",
-            desc: "Thơm béo, mát lạnh ngọt ngào từ các thương hiệu sữa tươi hàng đầu Việt Nam và Châu Âu.",
+            desc: "Thơm béo, mát lạnh ngọt ngào từ các thương hiệu sữa hàng đầu.",
             image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80"
         },
         beverage: {
             title: "Sữa & Bơ & Phô Mai Dinh Dưỡng",
-            desc: "Bổ dung canxi và chất béo tự nhiên cho bé và cả gia đình tràn đầy năng lượng.",
+            desc: "Bổ sung canxi và chất béo tự nhiên cho cả gia đình.",
             image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=80"
         },
         packaged: {
             title: "Mì, Bún & Thực Phẩm Khô Tiện Lợi",
-            desc: "Đa dạng hương vị mì gói, bún phở ăn liền hảo hạng cho bữa ăn chuẩn vị nhanh gọn.",
+            desc: "Đa dạng các sản phẩm tiện lợi hảo hạng cho bữa ăn nhanh gọn.",
             image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=1200&q=80"
         },
         frozen: {
             title: "Thực Phẩm Đông Mát",
-            desc: "Sủi cảo, chả giò giòn tan, khoai tây chiên McCain nhập khẩu chế biến nhanh chóng.",
+            desc: "Sủi cảo, chả giò giòn tan nhập khẩu thơm ngon.",
             image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
         },
         snacks: {
             title: "Bánh Kẹo & Đồ Ăn Vặt Hấp Dẫn",
-            desc: "Món ngon lý tưởng cho mọi buổi xế chiều, giòn tan ngọt ngào đầy phấn khởi.",
+            desc: "Món ngon lý tưởng cho mọi buổi xế chiều ngọt ngào đầy phấn khởi.",
             image: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=1200&q=80"
         },
         bakery: {
             title: "Bánh Tươi & Ngũ Cốc Bữa Sáng",
-            desc: "Bánh mì hoa cúc thơm nồng, bánh sừng bò croissant Pháp hảo hạng và ngũ cốc dinh dưỡng.",
+            desc: "Bánh mì brioche thơm nồng, ngũ cốc dinh dưỡng tràn đầy sức sống.",
             image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80"
         },
         condiment: {
             title: "Gia Vị Đậm Đà Hảo Hạng",
-            desc: "Nâng tầm món ăn Việt với nước mắm cốt nhĩ Phú Quốc, hạt nêm từ xương ống ngọt lịm.",
+            desc: "Nước mắm cốt nhĩ, hạt nêm từ xương ống thơm ngon tròn vị.",
             image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?auto=format&fit=crop&w=1200&q=80"
         },
         drink: {
             title: "Nước Giải Khát & Đồ Uống Có Cồn",
-            desc: "Giải nhiệt tức thì với nước ép lựu nguyên chất, bia thủ công thơm lừng bọt mịn.",
+            desc: "Nước ép nguyên chất, bia thủ công sảng khoái mát lạnh.",
             image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1200&q=80"
         },
         household: {
             title: "Đồ Dùng Gia Đình Sinh Học",
-            desc: "Chăm sóc tổ ấm thân yêu bằng các sản phẩm lau dọn, rửa chén từ tinh dầu thiên nhiên.",
+            desc: "Chăm sóc tổ ấm bằng sản phẩm từ tinh dầu thiên nhiên.",
             image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80"
         },
         personalcare: {
             title: "Chăm Sóc Cá Nhân Thảo Dược",
-            desc: "Sữa tắm organic, dầu gội ngăn rụng tóc thảo mộc nhẹ dịu cho da đầu và cơ thể.",
+            desc: "Sữa tắm, dầu gội organic thảo mộc dịu nhẹ.",
             image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80"
         }
     };
 
-    const bannerConfig = categoryBanners[currentCategory] || categoryBanners.all;
-    banner.style.backgroundImage = `url('${bannerConfig.image}')`;
-    banner.innerHTML = `
-        <div class="category-header-banner-content">
-            <h2 class="category-header-banner-title">${bannerConfig.title}</h2>
-            <p class="category-header-banner-desc">${bannerConfig.desc}</p>
-        </div>
-    `;
-
-    grid.innerHTML = '';
-
-    // Filter items
-    const filtered = products.filter(p => {
-        const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
-        const matchesSearch = p.name.toLowerCase().includes(searchKeyword.toLowerCase());
-        return matchesCategory && matchesSearch;
-    });
-
-    if (filtered.length === 0) {
-        grid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-                <i class="fa-solid fa-magnifying-glass" style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-                <p>Không tìm thấy sản phẩm nào phù hợp với yêu cầu của bạn.</p>
-            </div>
-        `;
-        return;
-    }
-
-    // 2. PREPEND LEFT VERTICAL PROMO BANNER (Kingfoodmart / Coop Layout)
     const gridPromoBanners = {
         all: {
             badge: "Giá Chấn Động",
@@ -934,9 +898,9 @@ function renderProducts() {
             price: "89.000đ",
             productId: 2,
             image: "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FFF5F5 0%, #FEE2E2 100%)",
-            titleColor: "#991B1B",
-            subColor: "#7F1D1D"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         fruit: {
             badge: "Giá Chấn Động",
@@ -945,9 +909,9 @@ function renderProducts() {
             price: "99.000đ",
             productId: 2,
             image: "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%)",
-            titleColor: "#92400E",
-            subColor: "#78350F"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         fresh: {
             badge: "Hot Deal",
@@ -956,9 +920,9 @@ function renderProducts() {
             price: "45.000đ",
             productId: 16,
             image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #F0FDF4 0%, #D1FAE5 100%)",
-            titleColor: "#065F46",
-            subColor: "#047857"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         meat: {
             badge: "Giá Chấn Động",
@@ -967,9 +931,9 @@ function renderProducts() {
             price: "269.000đ",
             productId: 1,
             image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FFF5F5 0%, #FEE2E2 100%)",
-            titleColor: "#991B1B",
-            subColor: "#7F1D1D"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         yogurt: {
             badge: "Món Ngon Lẻ",
@@ -978,9 +942,9 @@ function renderProducts() {
             price: "38.000đ",
             productId: 9,
             image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FDF4FF 0%, #F3E8FF 100%)",
-            titleColor: "#6B21A8",
-            subColor: "#581C87"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         beverage: {
             badge: "Dinh Dưỡng Cao",
@@ -990,8 +954,8 @@ function renderProducts() {
             productId: 6,
             image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
-            titleColor: "#075985",
-            subColor: "#0369A1"
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         packaged: {
             badge: "Chuẩn Vị Ý",
@@ -1000,9 +964,9 @@ function renderProducts() {
             price: "68.000đ",
             productId: 4,
             image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FEF9C3 0%, #FEF08A 100%)",
-            titleColor: "#854D0E",
-            subColor: "#713F12"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         frozen: {
             badge: "Giảm 18%",
@@ -1011,9 +975,9 @@ function renderProducts() {
             price: "65.000đ",
             productId: 25,
             image: "https://images.unsplash.com/photo-1496116211227-7cf39588bf1e?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%)",
-            titleColor: "#1E40AF",
-            subColor: "#1E3A8A"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         snacks: {
             badge: "Giòn Tan",
@@ -1022,9 +986,9 @@ function renderProducts() {
             price: "145.000đ",
             productId: 5,
             image: "https://images.unsplash.com/photo-1508061461508-cb18c242f556?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FDF2F8 0%, #FCE7F3 100%)",
-            titleColor: "#9D174D",
-            subColor: "#831843"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         bakery: {
             badge: "Bánh Tươi",
@@ -1033,9 +997,9 @@ function renderProducts() {
             price: "135.000đ",
             productId: 10,
             image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%)",
-            titleColor: "#9A3412",
-            subColor: "#7C2D12"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         condiment: {
             badge: "Đậm Đà",
@@ -1044,9 +1008,9 @@ function renderProducts() {
             price: "85.000đ",
             productId: 32,
             image: "https://images.unsplash.com/photo-1589135306090-e555aa88bcca?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #F5F5F4 0%, #E7E5E4 100%)",
-            titleColor: "#44403C",
-            subColor: "#292524"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         drink: {
             badge: "Cực Đã",
@@ -1055,9 +1019,9 @@ function renderProducts() {
             price: "52.000đ",
             productId: 8,
             image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%)",
-            titleColor: "#92400E",
-            subColor: "#78350F"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         household: {
             badge: "Sinh Học",
@@ -1066,9 +1030,9 @@ function renderProducts() {
             price: "75.000đ",
             productId: 11,
             image: "https://images.unsplash.com/photo-1622060873536-a67bcfc6d482?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)",
-            titleColor: "#334155",
-            subColor: "#1E293B"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         },
         personalcare: {
             badge: "Thảo Mộc",
@@ -1077,87 +1041,189 @@ function renderProducts() {
             price: "99.000đ",
             productId: 12,
             image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80",
-            bg: "linear-gradient(180deg, #ECFDF5 0%, #D1FAE5 100%)",
-            titleColor: "#065F46",
-            subColor: "#047857"
+            bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
+            titleColor: "#0369A1",
+            subColor: "#0284C7"
         }
     };
 
-    const promoConfig = gridPromoBanners[currentCategory] || gridPromoBanners.all;
-    const promoCard = document.createElement('div');
-    promoCard.className = 'grid-promo-banner';
-    promoCard.style.background = promoConfig.bg;
-    promoCard.innerHTML = `
-        <div class="grid-promo-banner-header">
-            <span class="grid-promo-banner-badge">${promoConfig.badge}</span>
-            <h3 class="grid-promo-banner-title" style="color: ${promoConfig.titleColor};">${promoConfig.title}</h3>
-            <p class="grid-promo-banner-subtitle" style="color: ${promoConfig.subColor};">${promoConfig.subtitle}</p>
-        </div>
-        <img src="${promoConfig.image}" alt="${promoConfig.title}" class="grid-promo-banner-image">
-        <div class="grid-promo-banner-price-box">
-            <span class="grid-promo-banner-price-label" style="color: ${promoConfig.subColor};">Giá chỉ từ</span>
-            <div class="grid-promo-banner-price">${promoConfig.price}</div>
-        </div>
-        <button class="grid-promo-banner-btn" onclick="handleAddToCart(event, ${promoConfig.productId})">Đặt Ngay</button>
-    `;
-    grid.appendChild(promoCard);
-
-    // 3. RENDER PRODUCT CARDS
-    filtered.forEach(p => {
-        const card = document.createElement('div');
-        card.classList.add('product-card', 'reveal', 'active');
+    // 1. IF THERE IS ACTIVE SEARCH KEYWORD, RENDER A SINGLE DYNAMIC SEARCH RESULTS GRID
+    if (searchKeyword.trim() !== '') {
+        const filtered = products.filter(p => p.name.toLowerCase().includes(searchKeyword.toLowerCase()));
         
-        let discountTagHTML = '';
-        let promoBannerHTML = '';
-        let savingHTML = '';
-        let tagLinkHTML = '';
+        const searchBlock = document.createElement('div');
+        searchBlock.className = 'category-block';
         
-        // If product is on sale (has oldPrice or flashSale)
-        const isSale = p.oldPrice || p.flashSale;
-        const currentPrice = p.flashSale ? p.flashPrice : p.price;
-        const originalPrice = p.oldPrice || p.price;
-        
-        if (isSale && originalPrice > currentPrice) {
-            const discountPercent = Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
-            discountTagHTML = `<span class="product-card-discount-tag">-${discountPercent}%</span>`;
-            promoBannerHTML = `<span class="product-card-promo-banner">${p.flashSale ? 'Flash Sale' : 'Giá Chấn Động'}</span>`;
-            savingHTML = `<span class="product-card-saving-text">Tiết kiệm ${formatCurrency(originalPrice - currentPrice)}</span>`;
-            tagLinkHTML = `<span class="product-card-tag-link">${p.flashSale ? 'Giá sốc có hạn!' : 'Ưu đãi cuối tuần!'}</span>`;
-        } else {
-            // Default fresh badge or label
-            if (p.badge) {
-                promoBannerHTML = `<span class="product-card-promo-banner" style="color: #10B981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.06);">${p.badge}</span>`;
-            }
-        }
-            
-        const oldPriceHTML = (isSale && originalPrice > currentPrice)
-            ? `<span class="product-price-original" style="font-size:0.75rem; text-decoration:line-through; color:var(--text-muted); margin-left:0.5rem;">${formatCurrency(originalPrice)}</span>` 
-            : '';
-
-        card.innerHTML = `
-            ${discountTagHTML}
-            ${promoBannerHTML}
-            <div class="product-image-box" style="margin-top: 1.25rem;">
-                <img src="${p.image}" alt="${p.name}" loading="lazy" width="200" height="180">
-            </div>
-            <div class="product-body" style="padding: 0.75rem 0.5rem 0.5rem 0.5rem;">
-                <span class="product-unit-text">${p.unit}</span>
-                <h3 class="product-title-text" title="${p.name}" style="font-size:0.85rem; height:2.8em; margin-bottom:0.4rem;">${p.name}</h3>
-                ${tagLinkHTML}
-                <div class="product-price-box" style="margin-top:0.4rem; margin-bottom:0.4rem; align-items: baseline; flex-wrap: wrap;">
-                    <span class="product-price-current" style="font-size: 0.95rem; font-weight: 800; color: #EF4444;">${formatCurrency(currentPrice)}</span>
-                    ${oldPriceHTML}
-                </div>
-                ${savingHTML}
-                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: var(--accent-light); color: var(--accent-primary); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Mua</span>
-                </button>
+        const searchHeader = document.createElement('div');
+        searchHeader.className = 'category-header-banner';
+        searchHeader.style.backgroundImage = `url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80')`;
+        searchHeader.innerHTML = `
+            <div class="category-header-banner-content">
+                <h2 class="category-header-banner-title">Kết Quả Tìm Kiếm</h2>
+                <p class="category-header-banner-desc">Có ${filtered.length} sản phẩm tương ứng với từ khóa "${searchKeyword}"</p>
             </div>
         `;
+        searchBlock.appendChild(searchHeader);
+
+        if (filtered.length === 0) {
+            const noResults = document.createElement('div');
+            noResults.style.textAlign = 'center';
+            noResults.style.padding = '4rem 1rem';
+            noResults.style.color = 'var(--text-muted)';
+            noResults.innerHTML = `
+                <i class="fa-solid fa-magnifying-glass" style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                <p>Không tìm thấy sản phẩm nào phù hợp với yêu cầu của bạn.</p>
+            `;
+            searchBlock.appendChild(noResults);
+        } else {
+            const grid = document.createElement('div');
+            grid.className = 'products-grid';
+            
+            filtered.forEach(p => {
+                const card = createProductCard(p);
+                grid.appendChild(card);
+            });
+            searchBlock.appendChild(grid);
+        }
         
-        // Add hover effects dynamically
-        const btn = card.querySelector('.add-to-cart-btn');
+        container.appendChild(searchBlock);
+        return;
+    }
+
+    // 2. IF NO SEARCH KEYWORD, RENDER STACKED CATEGORIES (Kingfoodmart Style)
+    const categoryIds = [
+        'all', 'fruit', 'fresh', 'meat', 'yogurt', 'beverage', 'packaged', 
+        'frozen', 'snacks', 'bakery', 'condiment', 'drink', 'household', 'personalcare'
+    ];
+
+    categoryIds.forEach(catId => {
+        let catProducts = [];
+        if (catId === 'all') {
+            catProducts = products.filter(p => p.oldPrice || p.flashSale);
+        } else {
+            catProducts = products.filter(p => p.category === catId);
+        }
+
+        if (catProducts.length === 0) return;
+
+        const block = document.createElement('section');
+        block.className = 'category-block';
+        block.id = `category-block-${catId}`;
+
+        const bannerConfig = categoryBanners[catId] || categoryBanners.all;
+        const banner = document.createElement('div');
+        banner.className = 'category-header-banner';
+        banner.style.backgroundImage = `url('${bannerConfig.image}')`;
+        banner.innerHTML = `
+            <div class="category-header-banner-content">
+                <h2 class="category-header-banner-title">${bannerConfig.title}</h2>
+                <p class="category-header-banner-desc">${bannerConfig.desc}</p>
+            </div>
+        `;
+        block.appendChild(banner);
+
+        const grid = document.createElement('div');
+        grid.className = 'products-grid';
+
+        const promoConfig = gridPromoBanners[catId] || gridPromoBanners.all;
+        const promoCard = document.createElement('div');
+        promoCard.className = 'grid-promo-banner';
+        promoCard.style.background = promoConfig.bg;
+        promoCard.style.gridRow = 'span 1';
+        promoCard.style.minHeight = 'auto';
+        promoCard.style.height = '100%';
+        promoCard.innerHTML = `
+            <div class="grid-promo-banner-header">
+                <span class="grid-promo-banner-badge" style="background: var(--accent-primary);">${promoConfig.badge}</span>
+                <h3 class="grid-promo-banner-title" style="color: ${promoConfig.titleColor}; font-size: 1.05rem; margin-top: 0.25rem;">${promoConfig.title}</h3>
+                <p class="grid-promo-banner-subtitle" style="color: ${promoConfig.subColor}; font-size: 0.7rem;">${promoConfig.subtitle}</p>
+            </div>
+            <img src="${promoConfig.image}" alt="${promoConfig.title}" class="grid-promo-banner-image" style="max-height: 120px; margin: 0.5rem 0;">
+            <div class="grid-promo-banner-price-box" style="margin-bottom: 0.5rem;">
+                <span class="grid-promo-banner-price-label" style="color: ${promoConfig.subColor}; font-size: 0.65rem;">Giá chỉ từ</span>
+                <div class="grid-promo-banner-price" style="font-size: 1.5rem; color: #EF4444;">${promoConfig.price}</div>
+            </div>
+            <button class="grid-promo-banner-btn" onclick="handleAddToCart(event, ${promoConfig.productId})" style="padding: 0.55rem; font-size: 0.75rem; background: var(--accent-primary); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.2);">Đặt Ngay</button>
+        `;
+        grid.appendChild(promoCard);
+
+        const displayLimit = 11;
+        const displayProducts = catProducts.slice(0, displayLimit);
+
+        displayProducts.forEach(p => {
+            const card = createProductCard(p);
+            grid.appendChild(card);
+        });
+
+        block.appendChild(grid);
+
+        const footer = document.createElement('div');
+        footer.className = 'category-block-footer';
+        footer.innerHTML = `
+            <a href="#products-section" class="category-view-all-btn" onclick="alert('Đang chuyển hướng xem tất cả sản phẩm thuộc danh mục ${bannerConfig.title}!')">
+                <span>Xem tất cả</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        `;
+        block.appendChild(footer);
+
+        container.appendChild(block);
+    });
+}
+
+function createProductCard(p) {
+    const card = document.createElement('div');
+    card.classList.add('product-card', 'reveal', 'active');
+    
+    let discountTagHTML = '';
+    let promoBannerHTML = '';
+    let savingHTML = '';
+    let tagLinkHTML = '';
+    
+    const isSale = p.oldPrice || p.flashSale;
+    const currentPrice = p.flashSale ? p.flashPrice : p.price;
+    const originalPrice = p.oldPrice || p.price;
+    
+    if (isSale && originalPrice > currentPrice) {
+        const discountPercent = Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+        discountTagHTML = `<span class="product-card-discount-tag">-${discountPercent}%</span>`;
+        promoBannerHTML = `<span class="product-card-promo-banner">${p.flashSale ? 'Flash Sale' : 'Giá Chấn Động'}</span>`;
+        savingHTML = `<span class="product-card-saving-text">Tiết kiệm ${formatCurrency(originalPrice - currentPrice)}</span>`;
+        tagLinkHTML = `<span class="product-card-tag-link">${p.flashSale ? 'Giá sốc có hạn!' : 'Ưu đãi cuối tuần!'}</span>`;
+    } else {
+        if (p.badge) {
+            promoBannerHTML = `<span class="product-card-promo-banner" style="color: #10B981; border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.06);">${p.badge}</span>`;
+        }
+    }
+        
+    const oldPriceHTML = (isSale && originalPrice > currentPrice)
+        ? `<span class="product-price-original" style="font-size:0.75rem; text-decoration:line-through; color:var(--text-muted); margin-left:0.5rem;">${formatCurrency(originalPrice)}</span>` 
+        : '';
+
+    card.innerHTML = `
+        ${discountTagHTML}
+        ${promoBannerHTML}
+        <div class="product-image-box" style="margin-top: 1.25rem;">
+            <img src="${p.image}" alt="${p.name}" loading="lazy" width="200" height="180">
+        </div>
+        <div class="product-body" style="padding: 0.75rem 0.5rem 0.5rem 0.5rem;">
+            <span class="product-unit-text">${p.unit}</span>
+            <h3 class="product-title-text" title="${p.name}" style="font-size:0.85rem; height:2.8em; margin-bottom:0.4rem;">${p.name}</h3>
+            ${tagLinkHTML}
+            <div class="product-price-box" style="margin-top:0.4rem; margin-bottom:0.4rem; align-items: baseline; flex-wrap: wrap;">
+                <span class="product-price-current" style="font-size: 0.95rem; font-weight: 800; color: #EF4444;">${formatCurrency(currentPrice)}</span>
+                ${oldPriceHTML}
+            </div>
+            ${savingHTML}
+            <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: var(--accent-light); color: var(--accent-primary); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Mua</span>
+            </button>
+        </div>
+    `;
+    
+    const btn = card.querySelector('.add-to-cart-btn');
+    if (btn) {
         btn.addEventListener('mouseover', () => {
             btn.style.background = 'var(--accent-primary)';
             btn.style.color = '#FFFFFF';
@@ -1166,24 +1232,76 @@ function renderProducts() {
             btn.style.background = 'var(--accent-light)';
             btn.style.color = 'var(--accent-primary)';
         });
+    }
 
-        grid.appendChild(card);
-    });
+    return card;
 }
 
 function initProductFilter() {
     const tabs = document.querySelectorAll('.sidebar-menu-item');
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
-            tabs.forEach(btn => btn.classList.remove('active'));
+            e.preventDefault();
             
-            // Get clicked button
+            tabs.forEach(btn => btn.classList.remove('active'));
             const clickedBtn = e.currentTarget;
             clickedBtn.classList.add('active');
             
-            currentCategory = clickedBtn.dataset.category;
-            renderProducts();
+            const catId = clickedBtn.getAttribute('data-category');
+            currentCategory = catId;
+
+            // Clear search first to show stacked category sections
+            const searchInput = document.getElementById('search-input');
+            if (searchInput && searchInput.value.trim() !== '') {
+                searchInput.value = '';
+                searchKeyword = '';
+                renderProducts();
+            }
+
+            let targetSection;
+            if (catId === 'all') {
+                targetSection = document.getElementById('category-block-all');
+            } else {
+                targetSection = document.getElementById(`category-block-${catId}`);
+            }
+
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
+    });
+
+    setupScrollSpy();
+}
+
+function setupScrollSpy() {
+    const sidebarItems = document.querySelectorAll('.sidebar-menu-item');
+    const sections = document.querySelectorAll('.category-block');
+    if (sidebarItems.length === 0 || sections.length === 0) return;
+
+    window.addEventListener('scroll', () => {
+        let currentActiveId = '';
+        const scrollPosition = window.scrollY + 180; // 180px offset for header
+        
+        sections.forEach(sec => {
+            const top = sec.offsetTop;
+            const height = sec.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+                const idAttr = sec.getAttribute('id');
+                if (idAttr) {
+                    currentActiveId = idAttr.replace('category-block-', '');
+                }
+            }
+        });
+
+        if (currentActiveId !== '') {
+            sidebarItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-category') === currentActiveId) {
+                    item.classList.add('active');
+                }
+            });
+        }
     });
 }
 

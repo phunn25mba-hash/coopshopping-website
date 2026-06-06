@@ -2204,7 +2204,7 @@ textarea.form-input {
 
 /* Adjust products grid inside 2-column layout */
 .store-layout-grid .products-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop since sidebar takes space */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop since sidebar takes space */
 }
 
 /* Responsive sidebar */
@@ -2579,7 +2579,7 @@ textarea.form-input {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(15, 118, 110, 0.9) 0%, rgba(21, 128, 61, 0.4) 100%);
+    background: linear-gradient(90deg, rgba(2, 132, 199, 0.9) 0%, rgba(56, 189, 248, 0.4) 100%);
     z-index: 1;
 }
 
@@ -2795,6 +2795,44 @@ textarea.form-input {
         height: 90px;
         margin: 0.5rem auto;
     }
+}
+
+/* Stacked category layout styles (Kingfoodmart style) */
+.category-block {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2.5rem;
+}
+.category-block:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.category-block-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.category-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    background: var(--accent-light);
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.05);
+}
+.category-view-all-btn:hover {
+    background: var(--accent-primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+    transform: translateY(-1px);
 }
 
 
