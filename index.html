@@ -29,12 +29,13 @@
     <!-- HEADER / NAVIGATION -->
     <header class="header" id="header">
         <div class="container">
+            <!-- Left Logo -->
             <a href="#" class="logo" id="logo-link" aria-label="Co.opShopping Homepage">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="200" height="42" style="display: block;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="180" height="38" style="display: block;">
                   <defs>
                     <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#0284C7" />
-                      <stop offset="100%" stop-color="#10B981" />
+                      <stop offset="0%" stop-color="#38BDF8" />
+                      <stop offset="100%" stop-color="#34D399" />
                     </linearGradient>
                   </defs>
                   <!-- Brand Mark Icon -->
@@ -44,45 +45,75 @@
                     <!-- Stylized 'C' + Bag Body -->
                     <path d="M 28 20 C 27 13, 8 13, 8 25 C 8 37, 27 37, 28 30 C 28 28, 25 26.5, 23.5 28 C 22 30.5, 13 32, 13 25 C 13 18, 22 19.5, 23.5 22 C 25 23.5, 28 22, 28 20 Z" fill="url(#logoGrad)" />
                     <!-- Spark / Digital dots -->
-                    <circle cx="23.5" cy="15" r="2.5" fill="#3B82F6" />
-                    <circle cx="28" cy="21" r="1.8" fill="#10B981" />
+                    <circle cx="23.5" cy="15" r="2.5" fill="#38BDF8" />
+                    <circle cx="28" cy="21" r="1.8" fill="#34D399" />
                   </g>
-                  <!-- Typography -->
-                  <text x="42" y="32" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="#0284C7">Co<tspan fill="#F59E0B">.</tspan><tspan fill="#10B981">op</tspan><tspan fill="var(--text-primary)" font-weight="600" font-family="'Outfit', sans-serif">Shopping</tspan></text>
+                  <!-- Typography (white for contrast) -->
+                  <text x="42" y="32" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="#38BDF8">Co<tspan fill="#F59E0B">.</tspan><tspan fill="#34D399">op</tspan><tspan fill="#FFFFFF" font-weight="600" font-family="'Outfit', sans-serif">Shopping</tspan></text>
                 </svg>
             </a>
             
-            <!-- Address Selector -->
+            <!-- Address Selector (Pill format) -->
             <button class="header-address" id="header-address-btn" title="Chọn địa chỉ giao hàng">
                 <i class="fa-solid fa-location-dot"></i>
                 <span>Chọn địa chỉ giao...</span>
             </button>
             
-            <!-- Search Bar -->
+            <!-- Search Bar (Centered and expanded) -->
             <div class="header-search">
                 <div class="search-input-wrapper">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="search-input" placeholder="Tìm rau củ, thịt cá, sữa, nước giặt...">
+                    <i class="fa-solid fa-magnifying-glass search-icon-left"></i>
+                    <input type="text" id="search-input" placeholder="Tìm sản phẩm trong Co.opShopping...">
                     <div class="search-results-panel" id="search-results-panel"></div>
                 </div>
             </div>
+
+            <!-- Desktop Navigation Links (Kingfoodmart style) -->
+            <nav class="header-nav-links">
+                <a href="#products-section" class="nav-item-link">Cẩm nang</a>
+                <a href="#products-section" class="nav-item-link">Siêu thị</a>
+                <a href="#products-section" class="nav-item-link">Khuyến mãi</a>
+                <a href="#products-section" class="nav-item-link">Thành viên</a>
+            </nav>
+
+            <span class="header-divider">|</span>
             
+            <!-- Action buttons (Kingfoodmart style with labels) -->
             <div class="nav-actions">
-                <!-- Order History Toggle -->
-                <button class="theme-toggle" id="history-toggle-btn" aria-label="Xem lịch sử đặt hàng" title="Lịch sử đơn hàng">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
+                <!-- Account Button -->
+                <button class="action-btn" id="account-btn" title="Tài khoản cá nhân" onclick="alert('Chào mừng bạn đến với chương trình thành viên Co.opShopping!')">
+                    <i class="fa-regular fa-user action-icon"></i>
+                    <div class="action-text-group">
+                        <span class="action-text-top">Đăng nhập</span>
+                        <span class="action-text-bottom">Tài khoản</span>
+                    </div>
                 </button>
 
-                <!-- Theme Toggle Switch -->
-                <button class="theme-toggle" id="theme-toggle" aria-label="Chuyển đổi chế độ sáng/tối" title="Chuyển đổi giao diện">
-                    <i class="fa-solid fa-moon icon-moon"></i>
-                    <i class="fa-solid fa-sun icon-sun"></i>
+                <!-- Order History (Đặt lại / Đơn hàng) -->
+                <button class="action-btn" id="history-toggle-btn" title="Lịch sử đơn hàng">
+                    <i class="fa-regular fa-file-lines action-icon"></i>
+                    <div class="action-text-group">
+                        <span class="action-text-top">Đặt lại</span>
+                        <span class="action-text-bottom">Đơn hàng</span>
+                    </div>
+                </button>
+
+                <!-- Cart Button with Badge and Price -->
+                <button class="action-btn cart-toggle-btn" id="cart-toggle-btn" title="Giỏ hàng">
+                    <div class="action-icon-wrapper">
+                        <i class="fa-solid fa-basket-shopping action-icon"></i>
+                        <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+                    </div>
+                    <div class="action-text-group">
+                        <span class="action-text-top" id="cart-total-header">0đ</span>
+                        <span class="action-text-bottom">Giỏ hàng</span>
+                    </div>
                 </button>
                 
-                <!-- Cart Button with Counter Badge -->
-                <button class="cart-toggle-btn" id="cart-toggle-btn" aria-label="Xem giỏ hàng" title="Giỏ hàng">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <span class="cart-badge" id="cart-badge" style="display: none;">0</span>
+                <!-- Theme Toggle Switch -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Chuyển đổi giao diện" title="Chuyển đổi giao diện">
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <i class="fa-solid fa-sun icon-sun" style="display: none;"></i>
                 </button>
                 
                 <!-- Hamburger Button for Mobile -->

@@ -431,6 +431,7 @@ function renderCart() {
     const summarySection = document.getElementById('cart-summary-calc');
     const footerSection = document.getElementById('cart-footer-actions');
     const counterBadge = document.getElementById('cart-badge');
+    const cartTotalHeader = document.getElementById('cart-total-header');
     const checkoutBillItems = document.getElementById('checkout-bill-items');
 
     if (!listContainer) return;
@@ -447,6 +448,10 @@ function renderCart() {
         emptyView.style.display = 'block';
         summarySection.style.display = 'none';
         footerSection.style.display = 'none';
+        
+        if (cartTotalHeader) {
+            cartTotalHeader.textContent = '0đ';
+        }
         
         if (checkoutBillItems) {
             checkoutBillItems.innerHTML = '<p style="color: var(--text-muted);">Giỏ hàng đang trống.</p>';
@@ -548,6 +553,9 @@ function renderCart() {
     }
 
     document.getElementById('calc-total').textContent = formatCurrency(finalTotal);
+    if (cartTotalHeader) {
+        cartTotalHeader.textContent = formatCurrency(subtotal);
+    }
     document.getElementById('earned-points').textContent = potentialPointsEarned;
 
     // Loyalty points section checkbox
