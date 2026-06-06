@@ -29,8 +29,27 @@
     <!-- HEADER / NAVIGATION -->
     <header class="header" id="header">
         <div class="container">
-            <a href="#" class="logo" id="logo-link">
-                CO.OPSHOPPING<span class="logo-dot"></span>
+            <a href="#" class="logo" id="logo-link" aria-label="Co.opShopping Homepage">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="200" height="42" style="display: block;">
+                  <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0284C7" />
+                      <stop offset="100%" stop-color="#10B981" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Brand Mark Icon -->
+                  <g transform="translate(0, 5)">
+                    <!-- Shopping Bag Handle -->
+                    <path d="M 12 16 C 12 9, 26 9, 26 16" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
+                    <!-- Stylized 'C' + Bag Body -->
+                    <path d="M 28 20 C 27 13, 8 13, 8 25 C 8 37, 27 37, 28 30 C 28 28, 25 26.5, 23.5 28 C 22 30.5, 13 32, 13 25 C 13 18, 22 19.5, 23.5 22 C 25 23.5, 28 22, 28 20 Z" fill="url(#logoGrad)" />
+                    <!-- Spark / Digital dots -->
+                    <circle cx="23.5" cy="15" r="2.5" fill="#3B82F6" />
+                    <circle cx="28" cy="21" r="1.8" fill="#10B981" />
+                  </g>
+                  <!-- Typography -->
+                  <text x="42" y="32" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="#0284C7">Co<tspan fill="#F59E0B">.</tspan><tspan fill="#10B981">op</tspan><tspan fill="var(--text-primary)" font-weight="600" font-family="'Outfit', sans-serif">Shopping</tspan></text>
+                </svg>
             </a>
             
             <!-- Address Selector -->
@@ -405,8 +424,27 @@
             <div class="footer-grid">
                 <!-- Column 1: Brand -->
                 <div class="footer-column footer-about">
-                    <a href="#" class="logo">
-                        CO.OPSHOPPING<span class="logo-dot"></span>
+                    <a href="#" class="logo" aria-label="Co.opShopping Homepage">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="200" height="42" style="display: block;">
+                          <defs>
+                            <linearGradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stop-color="#0284C7" />
+                              <stop offset="100%" stop-color="#10B981" />
+                            </linearGradient>
+                          </defs>
+                          <!-- Brand Mark Icon -->
+                          <g transform="translate(0, 5)">
+                            <!-- Shopping Bag Handle -->
+                            <path d="M 12 16 C 12 9, 26 9, 26 16" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
+                            <!-- Stylized 'C' + Bag Body -->
+                            <path d="M 28 20 C 27 13, 8 13, 8 25 C 8 37, 27 37, 28 30 C 28 28, 25 26.5, 23.5 28 C 22 30.5, 13 32, 13 25 C 13 18, 22 19.5, 23.5 22 C 25 23.5, 28 22, 28 20 Z" fill="url(#logoGradFooter)" />
+                            <!-- Spark / Digital dots -->
+                            <circle cx="23.5" cy="15" r="2.5" fill="#3B82F6" />
+                            <circle cx="28" cy="21" r="1.8" fill="#10B981" />
+                          </g>
+                          <!-- Typography -->
+                          <text x="42" y="32" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="#0284C7">Co<tspan fill="#F59E0B">.</tspan><tspan fill="#10B981">op</tspan><tspan fill="var(--text-primary)" font-weight="600" font-family="'Outfit', sans-serif">Shopping</tspan></text>
+                        </svg>
                     </a>
                     <p class="footer-desc">Siêu thị thực phẩm hữu cơ, hàng FMCG cao cấp hàng đầu Việt Nam. Mang bữa ăn tươi ngon và cuộc sống xanh đến mọi gia đình.</p>
                     <div class="footer-socials">
