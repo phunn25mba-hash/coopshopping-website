@@ -1159,7 +1159,7 @@ function renderProducts() {
                     ${oldPriceHTML}
                 </div>
                 ${savingHTML}
-                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: var(--accent-light); color: var(--accent-primary); border: 1px solid rgba(255, 118, 0, 0.15); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
+                <button class="add-to-cart-btn" onclick="handleAddToCart(event, ${p.id})" style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:0.85rem; padding:0.55rem; background: var(--accent-light); color: var(--accent-primary); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--border-radius-sm); margin-top: auto; font-weight: 700; transition: all var(--transition-fast);">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Mua</span>
                 </button>
