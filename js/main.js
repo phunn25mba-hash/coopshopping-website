@@ -587,23 +587,23 @@ function initAddressSelector() {
             name: "Thành phố Hồ Chí Minh",
             districts: {
                 Q1: {
-                    name: "Quận 1",
+                    name: "1",
                     wards: ["Phường Sài Gòn", "Phường Tân Định", "Phường Bến Thành", "Phường Cầu Ông Lãnh"]
                 },
                 Q3: {
-                    name: "Quận 3",
+                    name: "3",
                     wards: ["Phường Bàn Cờ", "Phường Xuân Hòa", "Phường Nhiêu Lộc"]
                 },
                 QBT: {
-                    name: "Quận Bình Thạnh",
+                    name: "Bình Thạnh",
                     wards: ["Phường Gia Định", "Phường Bình Thạnh", "Phường Bình Lợi Trung", "Phường Thạnh Mỹ Tây", "Phường Bình Quới", "Phường 3", "Phường 6", "Phường 15", "Phường 21", "Phường 24"]
                 },
                 QPN: {
-                    name: "Quận Phú Nhuận",
+                    name: "Phú Nhuận",
                     wards: ["Phường Đức Nhuận", "Phường Cầu Kiệu", "Phường Phú Nhuận"]
                 },
                 QGV: {
-                    name: "Quận Gò Vấp",
+                    name: "Gò Vấp",
                     wards: ["Phường Hạnh Thông", "Phường An Nhơn", "Phường Gò Vấp", "Phường Thông Tây Hội", "Phường An Hội Đông", "Phường An Hội Tây", "Phường 4", "Phường 7", "Phường 9", "Phường 13"]
                 }
             }
@@ -612,19 +612,19 @@ function initAddressSelector() {
             name: "Thành phố Hà Nội",
             districts: {
                 HK: {
-                    name: "Quận Hoàn Kiếm",
+                    name: "Hoàn Kiếm",
                     wards: ["Phường Hàng Đào", "Phường Hàng Bạc", "Phường Tràng Tiền", "Phường Hàng Trống"]
                 },
                 BD: {
-                    name: "Quận Ba Đình",
+                    name: "Ba Đình",
                     wards: ["Phường Quán Thánh", "Phường Kim Mã", "Phường Điện Biên", "Phường Thành Công"]
                 },
                 DD: {
-                    name: "Quận Đống Đa",
+                    name: "Đống Đa",
                     wards: ["Phường Cát Linh", "Phường Láng Hạ", "Phường Quang Trung", "Phường Khương Thượng"]
                 },
                 CG: {
-                    name: "Quận Cầu Giấy",
+                    name: "Cầu Giấy",
                     wards: ["Phường Dịch Vọng", "Phường Quan Hoa", "Phường Nghĩa Tân", "Phường Mai Dịch"]
                 }
             }
@@ -633,15 +633,15 @@ function initAddressSelector() {
             name: "Thành phố Đà Nẵng",
             districts: {
                 HC: {
-                    name: "Quận Hải Châu",
+                    name: "Hải Châu",
                     wards: ["Phường Thuận Phước", "Phường Thạch Thang", "Phường Hải Châu I", "Phường Phước Ninh"]
                 },
                 TK: {
-                    name: "Quận Thanh Khê",
+                    name: "Thanh Khê",
                     wards: ["Phường Vĩnh Trung", "Phường Tân Chính", "Phường Chính Gián", "Phường An Khê"]
                 },
                 ST: {
-                    name: "Quận Sơn Trà",
+                    name: "Sơn Trà",
                     wards: ["Phường An Hải Bắc", "Phường An Hải Tây", "Phường Thọ Quang", "Phường Mân Thái"]
                 }
             }
@@ -773,9 +773,12 @@ function initAddressSelector() {
         const districtKey = districtSelect.value;
         
         const cityName = addressData[cityKey] ? addressData[cityKey].name : '';
-        const districtName = (addressData[cityKey] && addressData[cityKey].districts[districtKey]) 
+        const rawDistrictName = (addressData[cityKey] && addressData[cityKey].districts[districtKey]) 
             ? addressData[cityKey].districts[districtKey].name 
             : '';
+        const districtName = (rawDistrictName && !rawDistrictName.startsWith("Quận") && !rawDistrictName.startsWith("Huyện"))
+            ? `Quận ${rawDistrictName}`
+            : rawDistrictName;
         const wardName = wardSelect.value;
         const detailName = detailInput.value.trim();
 
