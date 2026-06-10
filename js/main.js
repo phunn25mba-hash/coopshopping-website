@@ -64,7 +64,7 @@ const products = [
         oldPrice: null,
         unit: "Hộp 350g",
         category: "snacks",
-        image: "https://images.unsplash.com/photo-1508061461508-cb18c242f556?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/coop_cashews.png",
         badge: "Độc quyền",
         badgeType: "fresh",
         flashSale: false
@@ -88,7 +88,7 @@ const products = [
         oldPrice: 120000,
         unit: "Chai 1L",
         category: "drink",
-        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/pomegranate_juice.png",
         badge: "-18%",
         badgeType: "sale",
         flashSale: true,
@@ -344,12 +344,12 @@ const products = [
     },
     {
         id: 28,
-        name: "Khoai Tây Chiên Lay's Vị Tự Nhiên Classic",
+        name: "Khoai tây Co.opshopping tự nhiên",
         price: 22000,
         oldPrice: null,
         unit: "Gói 95g",
         category: "snacks",
-        image: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/coop_potatoes.png",
         badge: "Ăn vặt",
         badgeType: "fresh",
         flashSale: false
@@ -373,7 +373,7 @@ const products = [
         oldPrice: 92000,
         unit: "Hộp 275g",
         category: "bakery",
-        image: "https://images.unsplash.com/photo-1521485950395-bcfb507d7f18?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/kelloggs_cereal.png",
         badge: "Bữa sáng",
         badgeType: "fresh",
         flashSale: false
@@ -457,7 +457,7 @@ const products = [
         oldPrice: null,
         unit: "Gói 200 tờ",
         category: "household",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/silkwell_tissue.png",
         badge: "Mềm mịn",
         badgeType: "fresh",
         flashSale: false
@@ -476,12 +476,12 @@ const products = [
     },
     {
         id: 39,
-        name: "Kem Đánh Răng Sensodyne Phục Hồi Toàn Diện",
+        name: "Kem đánh răng Co.opshopping",
         price: 68000,
         oldPrice: 80000,
         unit: "Tuýp 100g",
         category: "personalcare",
-        image: "assets/images/sensodyne.png",
+        image: "assets/images/coop_toothpaste.png",
         badge: "Chống ê buốt",
         badgeType: "fresh",
         flashSale: false
@@ -732,7 +732,7 @@ function renderProducts() {
             subtitle: "Organic Vỏ Lụa Hộp 350g",
             price: "145.000đ",
             productId: 5,
-            image: "https://images.unsplash.com/photo-1508061461508-cb18c242f556?auto=format&fit=crop&w=400&q=80",
+            image: "assets/images/coop_cashews.png",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
