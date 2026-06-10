@@ -25,12 +25,12 @@ const products = [
         oldPrice: 160000,
         unit: "Hộp 250g",
         category: "fruit",
-        image: "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?auto=format&fit=crop&w=400&q=80",
-        badge: "Mới",
+        image: "https://images.unsplash.com/photo-1518635017498-87f514b751ba?auto=format&fit=crop&w=400&q=80",
+        badge: "Giá chấn động",
         badgeType: "fresh",
         flashSale: true,
         flashPrice: 99000,
-        soldQty: 24,
+        soldQty: 12,
         totalQty: 40
     },
     {
@@ -241,9 +241,9 @@ const products = [
         oldPrice: 15000,
         unit: "Hũ 120g",
         category: "yogurt",
-        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80",
-        badge: "-20%",
-        badgeType: "sale",
+        image: "assets/images/bavi_yogurt.png",
+        badge: "Ăn vặt",
+        badgeType: "fresh",
         flashSale: false
     },
     {
@@ -313,7 +313,7 @@ const products = [
         oldPrice: 80000,
         unit: "Gói 400g",
         category: "frozen",
-        image: "https://images.unsplash.com/photo-1496116211227-7cf39588bf1e?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/cj_dumplings.png",
         badge: "Giảm 18%",
         badgeType: "sale",
         flashSale: false
@@ -361,9 +361,9 @@ const products = [
         oldPrice: 42000,
         unit: "Gói 80g",
         category: "snacks",
-        image: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=400&q=80",
-        badge: "Trẻ em yêu thích",
-        badgeType: "fresh",
+        image: "assets/images/haribo_gummy.png",
+        badge: "-17%",
+        badgeType: "sale",
         flashSale: false
     },
     {
@@ -721,7 +721,7 @@ function renderProducts() {
             subtitle: "CJ Cầu Tre Gói 400g",
             price: "65.000đ",
             productId: 25,
-            image: "https://images.unsplash.com/photo-1496116211227-7cf39588bf1e?auto=format&fit=crop&w=400&q=80",
+            image: "assets/images/cj_dumplings.png",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
