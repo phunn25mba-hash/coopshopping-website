@@ -30,24 +30,44 @@
     <header class="header" id="header">
         <div class="container">
             <!-- Left Logo -->
-            <a href="#" class="logo" id="logo-link" aria-label="Co.opShopping Homepage">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="180" height="38" style="display: block;">
-                  <!-- 1. Text "Co." on the left -->
-                  <text x="12" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Co.</text>
-                  <!-- 2. Stylized Shopping Cart (Xe đẩy) in the middle -->
-                  <g>
-                    <!-- Cart Handle and Basket Outline -->
-                    <path d="M 52 14 L 57 14 C 58.5 14, 59.5 15, 60 16.5 L 63 26 C 63.5 27.5, 64.5 28.5, 66 28.5 L 81 28.5 C 82.5 28.5, 83.5 27.5, 84 26 L 87 16.5 C 87.5 15, 86.5 14, 85 14 L 60 14" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                    <!-- Cart Wheels -->
-                    <circle cx="67" cy="34" r="2.2" fill="#FFFFFF" />
-                    <circle cx="80" cy="34" r="2.2" fill="#FFFFFF" />
-                    <!-- "op" Loop inside Cart Basket -->
-                    <path d="M 73 21 C 73 17.5, 67 17.5, 67 21 C 67 24.5, 73 24.5, 73 21 C 73 17.5, 79 17.5, 79 21 C 79 24.5, 73 24.5, 73 21 M 79 17 L 79 27.5" fill="none" stroke="#34D399" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" />
-                  </g>
-                  <!-- 3. Text "shopping" on the right -->
-                  <text x="92" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="400" fill="#FFFFFF">shopping</text>
-                  <!-- 4. Tagline "MODERN RETAIL EXPERIENCE" -->
-                  <text x="93" y="42" font-family="'Outfit', sans-serif" font-size="8" font-weight="600" letter-spacing="1.2" fill="rgba(255, 255, 255, 0.85)">MODERN RETAIL EXPERIENCE</text>
+            <a href="#" class="logo" id="logo-link" aria-label="CoopShopping Homepage">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="165" height="55" style="display: block;">
+                  <defs>
+                    <linearGradient id="headerBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#FFFFFF" />
+                      <stop offset="100%" stop-color="#E0F2FE" />
+                    </linearGradient>
+                    <linearGradient id="headerCoopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="25%" stop-color="#FFFFFF" />
+                      <stop offset="48%" stop-color="#E0F2FE" />
+                      <stop offset="58%" stop-color="#f26522" />
+                      <stop offset="80%" stop-color="#f7931e" />
+                    </linearGradient>
+                    <linearGradient id="headerOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f7931e" />
+                      <stop offset="100%" stop-color="#f26522" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Coop Text Elements -->
+                  <!-- 1. C -->
+                  <text x="49" y="52" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" fill="url(#headerBlueGrad)">C</text>
+                  
+                  <!-- 2. oo loop -->
+                  <path d="M 120 42 C 108 26, 80 26, 80 42 C 80 58, 108 58, 120 42 C 132 26, 160 26, 160 42 C 160 58, 132 58, 120 42 Z" fill="none" stroke="url(#headerCoopGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                  
+                  <!-- Handle on top of the second o -->
+                  <path d="M 129.5 24 C 129.5 13, 150.5 13, 150.5 24" fill="none" stroke="url(#headerOrangeGrad)" stroke-width="2.2" stroke-linecap="round" />
+                  <circle cx="129.5" cy="24.5" r="1.8" fill="#f26522" />
+                  <circle cx="150.5" cy="24.5" r="1.8" fill="#f26522" />
+
+                  <!-- 3. p -->
+                  <text x="168" y="52" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" fill="url(#headerBlueGrad)">p</text>
+
+                  <!-- Subtitle: — Shopping — -->
+                  <text x="120" y="70" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="4.5" fill="#FFFFFF" text-anchor="middle">Shopping</text>
+                  <line x1="48" y1="66.5" x2="72" y2="66.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="168" y1="66.5" x2="192" y2="66.5" stroke="#f7931e" stroke-width="1.8" stroke-linecap="round" />
                 </svg>
             </a>
             
@@ -564,24 +584,44 @@
             <div class="footer-grid">
                 <!-- Column 1: Brand -->
                 <div class="footer-column footer-about">
-                    <a href="#" class="logo" aria-label="Co.opShopping Homepage">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="200" height="42" style="display: block;">
-                          <!-- 1. Text "Co." on the left -->
-                          <text x="12" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="800" fill="var(--accent-secondary)">Co.</text>
-                          <!-- 2. Stylized Shopping Cart (Xe đẩy) in the middle -->
-                          <g>
-                            <!-- Cart Handle and Basket Outline -->
-                            <path d="M 52 14 L 57 14 C 58.5 14, 59.5 15, 60 16.5 L 63 26 C 63.5 27.5, 64.5 28.5, 66 28.5 L 81 28.5 C 82.5 28.5, 83.5 27.5, 84 26 L 87 16.5 C 87.5 15, 86.5 14, 85 14 L 60 14" fill="none" stroke="var(--accent-secondary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-                            <!-- Cart Wheels -->
-                            <circle cx="67" cy="34" r="2.2" fill="var(--accent-secondary)" />
-                            <circle cx="80" cy="34" r="2.2" fill="var(--accent-secondary)" />
-                            <!-- "op" Loop inside Cart Basket -->
-                            <path d="M 73 21 C 73 17.5, 67 17.5, 67 21 C 67 24.5, 73 24.5, 73 21 C 73 17.5, 79 17.5, 79 21 C 79 24.5, 73 24.5, 73 21 M 79 17 L 79 27.5" fill="none" stroke="#34D399" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round" />
-                          </g>
-                          <!-- 3. Text "shopping" on the right -->
-                          <text x="92" y="32" font-family="'Outfit', sans-serif" font-size="24" font-weight="400" fill="var(--text-primary)">shopping</text>
-                          <!-- 4. Tagline "MODERN RETAIL EXPERIENCE" -->
-                          <text x="93" y="42" font-family="'Outfit', sans-serif" font-size="8" font-weight="600" letter-spacing="1.2" fill="var(--text-muted)">MODERN RETAIL EXPERIENCE</text>
+                    <a href="#" class="logo" aria-label="CoopShopping Homepage">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="180" height="60" style="display: block;">
+                          <defs>
+                            <linearGradient id="footerBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stop-color="#0284C7" />
+                              <stop offset="100%" stop-color="#1E3A8A" />
+                            </linearGradient>
+                            <linearGradient id="footerCoopGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="25%" stop-color="#0b60bc" />
+                              <stop offset="48%" stop-color="#1c75bc" />
+                              <stop offset="58%" stop-color="#f26522" />
+                              <stop offset="80%" stop-color="#f7931e" />
+                            </linearGradient>
+                            <linearGradient id="footerOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stop-color="#f7931e" />
+                              <stop offset="100%" stop-color="#f26522" />
+                            </linearGradient>
+                          </defs>
+
+                          <!-- Coop Text Elements -->
+                          <!-- 1. C -->
+                          <text x="49" y="52" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" fill="url(#footerBlueGrad)">C</text>
+                          
+                          <!-- 2. oo loop -->
+                          <path d="M 120 42 C 108 26, 80 26, 80 42 C 80 58, 108 58, 120 42 C 132 26, 160 26, 160 42 C 160 58, 132 58, 120 42 Z" fill="none" stroke="url(#footerCoopGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                          
+                          <!-- Handle on top of the second o -->
+                          <path d="M 129.5 24 C 129.5 13, 150.5 13, 150.5 24" fill="none" stroke="url(#footerOrangeGrad)" stroke-width="2.2" stroke-linecap="round" />
+                          <circle cx="129.5" cy="24.5" r="1.8" fill="#f26522" />
+                          <circle cx="150.5" cy="24.5" r="1.8" fill="#f26522" />
+
+                          <!-- 3. p -->
+                          <text x="168" y="52" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" fill="url(#footerBlueGrad)">p</text>
+
+                          <!-- Subtitle: — Shopping — -->
+                          <text x="120" y="70" font-family="'Outfit', 'Inter', system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="4.5" fill="#333333" text-anchor="middle">Shopping</text>
+                          <line x1="48" y1="66.5" x2="72" y2="66.5" stroke="#0b60bc" stroke-width="1.8" stroke-linecap="round" />
+                          <line x1="168" y1="66.5" x2="192" y2="66.5" stroke="#f7931e" stroke-width="1.8" stroke-linecap="round" />
                         </svg>
                     </a>
                     <p class="footer-desc">Siêu thị thực phẩm hữu cơ, hàng FMCG cao cấp hàng đầu Việt Nam. Mang bữa ăn tươi ngon và cuộc sống xanh đến mọi gia đình.</p>
