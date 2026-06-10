@@ -2840,5 +2840,42 @@ textarea.form-input {
     transform: translateY(-1px);
 }
 
+/* Header background color and high-contrast text overrides for baby blue theme (#89CFF0) */
+.header {
+    background-color: #89CFF0 !important;
+}
+
+.nav-item-link {
+    color: #1E293B !important;
+}
+
+.nav-item-link:hover {
+    color: #0284C7 !important;
+}
+
+.header-divider {
+    color: rgba(30, 41, 59, 0.2) !important;
+}
+
+.action-btn {
+    color: #1E293B !important;
+}
+
+.action-btn:hover {
+    background: rgba(30, 41, 59, 0.06) !important;
+}
+
+.action-icon {
+    color: #1E293B !important;
+}
+
+.hamburger span {
+    background-color: #1E293B !important;
+}
+
+.search-input-wrapper i.search-icon-left {
+    color: #0284C7 !important;
+}
+
 
 
