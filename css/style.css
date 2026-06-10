@@ -2877,5 +2877,16 @@ textarea.form-input {
     color: #0284C7 !important;
 }
 
+/* Testimonial card micro-animations */
+.testimonial-card {
+    transition: all var(--transition-normal);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05) !important;
+    border-color: rgba(56, 189, 248, 0.15) !important;
+}
+
 
 
