@@ -101,7 +101,6 @@
     <nav class="nav-menu" id="nav-menu" style="display: none;" aria-label="Menu di động">
         <a href="#hero" class="nav-link">Trang chủ</a>
         <a href="#products-section" class="nav-link">Sản phẩm tươi sạch</a>
-        <a href="#checkout" class="nav-link">Thanh toán nhanh</a>
     </nav>
 
     <!-- HERO / PROMO BANNER SECTION -->
@@ -389,69 +388,14 @@
         </div>
         
         <div class="cart-drawer-footer" id="cart-footer-actions" style="display: none;">
-            <a href="#checkout" class="btn btn-secondary checkout-btn" onclick="document.getElementById('cart-close-btn').click()">
-                <span>Tiến hành đặt hàng</span>
+            <button type="button" id="cart-checkout-btn" class="btn btn-secondary checkout-btn" style="width: 100%; justify-content: center; padding: 1rem; border: none; font-weight: 700;">
+                <span>Xác Nhận Đặt Hàng Ngay</span>
                 <i class="fa-solid fa-bag-shopping"></i>
-            </a>
+            </button>
         </div>
     </div>
 
-    <!-- CHECKOUT / ORDER SECTION -->
-    <section class="checkout-section section" id="checkout">
-        <div class="container">
-            <div class="checkout-grid">
-                <!-- Column 1: Delivery Policy -->
-                <div class="checkout-info reveal active">
-                    <span class="section-badge">Mua Sắm Tiện Lợi</span>
-                    <h3>Thanh toán nhanh gọn & Nhận hàng tiện lợi</h3>
-                    <p class="checkout-desc">Hoàn thành đơn đặt hàng của bạn chỉ trong 3 bước đơn giản. Đội ngũ Co.opshopping đảm bảo vận chuyển sản phẩm đúng nhiệt độ bảo quản lạnh tiêu chuẩn.</p>
-                    
-                    <div class="checkout-steps">
-                        <!-- Step 1 -->
-                        <div class="step-card">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Giao hàng siêu tốc 36 phút</h4>
-                                <p>Đơn hàng được chuẩn bị trực tiếp từ kho hàng Co.opshopping gần nhất và bàn giao cho tài xế để vận chuyển đến tay bạn sớm nhất.</p>
-                            </div>
-                        </div>
-                        <!-- Step 2 -->
-                        <div class="step-card">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Đảm bảo tươi mới 100%</h4>
-                                <p>Co.opshopping hoàn tiền hoặc giao bù miễn phí trong 24h nếu khách hàng không hài lòng về độ tươi ngon hoặc chất lượng thực phẩm.</p>
-                            </div>
-                        </div>
-                        <!-- Step 3 -->
-                        <div class="step-card">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Chăm sóc & Tích điểm Co.opshopping</h4>
-                                <p>Tích lũy 1% giá trị mọi đơn hàng thành điểm thưởng Co.opshopping Member để giảm trừ trực tiếp cho những lần mua sắm tiếp theo.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Column 2: Simplified Quick Order Card -->
-                <div class="checkout-form-card reveal reveal-delay-2 active" id="quick-checkout-card" style="padding: 2.5rem 2rem;">
-                    <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); text-align: center;">Xác Nhận Đơn Hàng</h4>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; text-align: center;">Đơn hàng của bạn sẽ được chuẩn bị và giao nhanh trong 36 phút.</p>
-                    
-                    <!-- Form Header: Bill Summary -->
-                    <div class="checkout-bill-preview" id="checkout-bill-items" style="margin-bottom: 1.5rem;">
-                        <!-- Rendered dynamically by main.js -->
-                    </div>
-                    
-                    <button type="button" id="confirm-order-btn" class="btn btn-primary submit-btn" style="width: 100%; justify-content: center; padding: 1rem;">
-                        <span>Xác Nhận Đặt Hàng Ngay</span>
-                        <i class="fa-solid fa-check" style="margin-left: 0.5rem;"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- CHECKOUT SECTION REMOVED -->
 
     <!-- TESTIMONIALS SECTION -->
     <section class="testimonials-section section" id="testimonials" style="background: #FFFFFF; padding: 4rem 0; border-top: 1px solid var(--border-color);">
@@ -534,7 +478,6 @@
                     <ul class="footer-links">
                         <li><a href="#hero">Trang chủ</a></li>
                         <li><a href="#products-section">Gian hàng khuyến mãi</a></li>
-                        <li><a href="#checkout">Đặt hàng nhanh</a></li>
                         <li><a href="#hero">Hệ thống cửa hàng</a></li>
                     </ul>
                 </div>

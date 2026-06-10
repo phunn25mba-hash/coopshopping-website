@@ -10,7 +10,7 @@ const products = [
         oldPrice: 380000,
         unit: "Khay 500g",
         category: "meat",
-        image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/usda_beef.png",
         badge: "Bán chạy",
         badgeType: "sale",
         flashSale: true,
@@ -193,7 +193,7 @@ const products = [
         oldPrice: 35000,
         unit: "Khay 500g",
         category: "fresh",
-        image: "https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=400&q=80",
         badge: "-20%",
         badgeType: "sale",
         flashSale: false
@@ -205,7 +205,7 @@ const products = [
         oldPrice: null,
         unit: "Gói 300g",
         category: "fresh",
-        image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=400&q=80",
         badge: "Chuẩn VietGAP",
         badgeType: "fresh",
         flashSale: false
@@ -229,7 +229,7 @@ const products = [
         oldPrice: null,
         unit: "Hộp 10 quả",
         category: "meat",
-        image: "https://images.unsplash.com/photo-1516448424440-9dbca97779c1?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=400&q=80",
         badge: "Giàu dinh dưỡng",
         badgeType: "fresh",
         flashSale: false
@@ -253,7 +253,7 @@ const products = [
         oldPrice: null,
         unit: "Hũ 100ml",
         category: "yogurt",
-        image: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&w=400&q=80",
         badge: "Premium",
         badgeType: "fresh",
         flashSale: false
@@ -301,7 +301,7 @@ const products = [
         oldPrice: null,
         unit: "Gói 400g",
         category: "packaged",
-        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1612966608967-312ba599102e?auto=format&fit=crop&w=400&q=80",
         badge: "Organic",
         badgeType: "fresh",
         flashSale: false
@@ -320,12 +320,12 @@ const products = [
     },
     {
         id: 26,
-        name: "Chả Giò Đặc Biệt Thịt & Tôm Cholimex",
+        name: "Chả Giò Đặc Biệt Thịt & Tôm Co.opshopping",
         price: 48000,
         oldPrice: null,
         unit: "Gói 500g",
         category: "frozen",
-        image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
         badge: "Giòn rụm",
         badgeType: "fresh",
         flashSale: false
@@ -583,7 +583,7 @@ function renderProducts() {
         meat: {
             title: "Thịt & Cá & Trứng & Hải Sản",
             desc: "Nguồn đạm cao cấp, an toàn vệ sinh, kiểm dịch nghiêm ngặt.",
-            image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=1200&q=80"
+            image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1200&q=80"
         },
         yogurt: {
             title: "Kem & Sữa Chua Trái Cây",
@@ -666,7 +666,7 @@ function renderProducts() {
             subtitle: "Baby Organic Gói 300g",
             price: "45.000đ",
             productId: 16,
-            image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&w=400&q=80",
+            image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=400&q=80",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
@@ -677,7 +677,7 @@ function renderProducts() {
             subtitle: "Thăn Bò USDA Khay 500g",
             price: "269.000đ",
             productId: 1,
-            image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=400&q=80",
+            image: "assets/images/usda_beef.png",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
@@ -1417,7 +1417,7 @@ function initDeliverySelection() {
 }
 
 function initCheckoutForm() {
-    const confirmBtn = document.getElementById('confirm-order-btn');
+    const confirmBtn = document.getElementById('cart-checkout-btn');
     if (!confirmBtn) return;
 
     confirmBtn.addEventListener('click', () => {
@@ -1528,6 +1528,13 @@ function initCheckoutForm() {
             if (couponMsg) couponMsg.style.display = 'none';
 
             renderCart();
+
+            // Close Drawer
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+            if (drawer) drawer.classList.remove('open');
+            if (overlay) overlay.classList.remove('open');
+            document.body.style.overflow = '';
 
             // Scroll to top
             window.scrollTo({top: 0, behavior: 'smooth'});
