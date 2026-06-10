@@ -434,108 +434,20 @@
                     </div>
                 </div>
                 
-                <!-- Column 2: Order Checkout Form -->
-                <div class="checkout-form-card reveal reveal-delay-2 active">
-                    <form id="checkout-form" novalidate>
-                        <!-- Form Header: Bill Summary -->
-                        <div class="checkout-bill-preview" id="checkout-bill-preview">
-                            <!-- Rendered dynamically by main.js -->
-                        </div>
-                        
-                        <!-- Customer Name -->
-                        <div class="form-group">
-                            <input type="text" id="fullname" name="fullname" class="form-input" placeholder=" " required autocomplete="name">
-                            <label for="fullname" class="form-label">Họ và tên người nhận *</label>
-                            <div class="error-message">Họ tên không được để trống</div>
-                        </div>
-                        
-                        <!-- Customer Phone -->
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder=" " required autocomplete="tel">
-                            <label for="phone" class="form-label">Số điện thoại liên hệ *</label>
-                            <div class="error-message">Số điện thoại không được để trống</div>
-                        </div>
-                        
-                        <!-- Customer Email -->
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" class="form-input" placeholder=" " required autocomplete="email">
-                            <label for="email" class="form-label">Địa chỉ Email *</label>
-                            <div class="error-message">Email không được để trống</div>
-                        </div>
-                        
-                        <!-- Delivery Address -->
-                        <div class="form-group">
-                            <input type="text" id="address" name="address" class="form-input" placeholder=" " required autocomplete="street-address">
-                            <label for="address" class="form-label">Địa chỉ nhận hàng chi tiết *</label>
-                            <div class="error-message">Địa chỉ giao hàng không được để trống</div>
-                        </div>
-                        
-                        <!-- Delivery Time Selector (CRO Option) -->
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-primary);">Thời gian nhận hàng mong muốn *</h4>
-                        <div class="delivery-options-grid">
-                            <!-- Express delivery (Default) -->
-                            <div class="delivery-card-option selected">
-                                <input type="radio" id="deliv-express" name="delivery-type" value="express" checked>
-                                <h5>Giao nhanh 36 phút</h5>
-                                <p>Nhận hàng ngay lập tức</p>
-                            </div>
-                            <!-- Scheduled delivery -->
-                            <div class="delivery-card-option">
-                                <input type="radio" id="deliv-custom" name="delivery-type" value="custom">
-                                <h5>Chọn giờ giao hàng</h5>
-                                <p>Hẹn giờ nhận thuận tiện</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Scheduled Time Slots Dropdown -->
-                        <div class="delivery-time-select-box" id="time-select-container">
-                            <div class="form-group" style="margin-bottom: 0;">
-                                <select id="delivery-time-slot" name="delivery-time-slot" aria-label="Chọn khung giờ giao hàng">
-                                    <option value="slot-1">Hôm nay: 08:00 - 10:00</option>
-                                    <option value="slot-2">Hôm nay: 10:00 - 12:00</option>
-                                    <option value="slot-3">Hôm nay: 14:00 - 16:00</option>
-                                    <option value="slot-4">Hôm nay: 16:00 - 18:00</option>
-                                    <option value="slot-5">Hôm nay: 18:00 - 20:00</option>
-                                    <option value="slot-6">Ngày mai: 08:00 - 11:00</option>
-                                    <option value="slot-7">Ngày mai: 14:00 - 17:00</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <!-- Payment Method Selector -->
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-primary);">Phương thức thanh toán *</h4>
-                        <div class="payment-methods-list">
-                            <!-- COD -->
-                            <div class="payment-item-option selected">
-                                <input type="radio" id="pay-cod" name="payment-method" value="cod" checked>
-                                <i class="fa-solid fa-hand-holding-dollar"></i>
-                                <span>Thanh toán tiền mặt khi nhận hàng (COD)</span>
-                            </div>
-                            <!-- Banking -->
-                            <div class="payment-item-option">
-                                <input type="radio" id="pay-bank" name="payment-method" value="bank">
-                                <i class="fa-solid fa-building-columns"></i>
-                                <span>Chuyển khoản qua tài khoản ngân hàng</span>
-                            </div>
-                            <!-- E-Wallet -->
-                            <div class="payment-item-option">
-                                <input type="radio" id="pay-wallet" name="payment-method" value="wallet">
-                                <i class="fa-solid fa-wallet"></i>
-                                <span>Thanh toán ví điện tử (MoMo / ZaloPay)</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Note/Instruction -->
-                        <div class="form-group">
-                            <textarea id="note" name="note" class="form-input" placeholder=" "></textarea>
-                            <label for="note" class="form-label">Ghi chú giao hàng (ví dụ: gõ cửa, để ở lễ tân...)</label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary submit-btn">
-                            <span>Xác nhận đặt hàng</span>
-                            <i class="fa-solid fa-check"></i>
-                        </button>
-                    </form>
+                <!-- Column 2: Simplified Quick Order Card -->
+                <div class="checkout-form-card reveal reveal-delay-2 active" id="quick-checkout-card" style="padding: 2.5rem 2rem;">
+                    <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); text-align: center;">Xác Nhận Đơn Hàng</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; text-align: center;">Đơn hàng của bạn sẽ được chuẩn bị và giao nhanh trong 36 phút.</p>
+                    
+                    <!-- Form Header: Bill Summary -->
+                    <div class="checkout-bill-preview" id="checkout-bill-items" style="margin-bottom: 1.5rem;">
+                        <!-- Rendered dynamically by main.js -->
+                    </div>
+                    
+                    <button type="button" id="confirm-order-btn" class="btn btn-primary submit-btn" style="width: 100%; justify-content: center; padding: 1rem;">
+                        <span>Xác Nhận Đặt Hàng Ngay</span>
+                        <i class="fa-solid fa-check" style="margin-left: 0.5rem;"></i>
+                    </button>
                 </div>
             </div>
         </div>

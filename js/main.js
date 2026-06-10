@@ -137,12 +137,12 @@ const products = [
     },
     {
         id: 11,
-        name: "Nước Rửa Chén Sinh Học Tinh Dầu Quế Co.opshopping",
+        name: "Nước rửa chén Co.opshopping",
         price: 75000,
         oldPrice: 90000,
         unit: "Can 1.2L",
         category: "household",
-        image: "https://images.unsplash.com/photo-1622060873536-a67bcfc6d482?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/coop_dishwash.png",
         badge: "Sinh học",
         badgeType: "fresh",
         flashSale: false
@@ -154,7 +154,7 @@ const products = [
         oldPrice: 150000,
         unit: "Chai 500ml",
         category: "personalcare",
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/lemongrass_shower_gel.png",
         badge: "Organic",
         badgeType: "fresh",
         flashSale: true,
@@ -397,7 +397,7 @@ const products = [
         oldPrice: null,
         unit: "Chai 620ml",
         category: "condiment",
-        image: "https://images.unsplash.com/photo-1589135306090-e555aa88bcca?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/phu_quoc_fish_sauce.png",
         badge: "40 độ đạm",
         badgeType: "fresh",
         flashSale: false
@@ -409,7 +409,7 @@ const products = [
         oldPrice: 68000,
         unit: "Gói 900g",
         category: "condiment",
-        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/knorr_seasoning.png",
         badge: "Tiết kiệm",
         badgeType: "fresh",
         flashSale: false
@@ -421,7 +421,7 @@ const products = [
         oldPrice: null,
         unit: "Chai 300g",
         category: "condiment",
-        image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd46f?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/heinz_ketchup.png",
         badge: "Heinz Mỹ",
         badgeType: "fresh",
         flashSale: false
@@ -445,7 +445,7 @@ const products = [
         oldPrice: 95000,
         unit: "Can 2kg",
         category: "household",
-        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/sunlight_floor_cleaner.png",
         badge: "Thơm lâu",
         badgeType: "fresh",
         flashSale: false
@@ -481,7 +481,7 @@ const products = [
         oldPrice: 80000,
         unit: "Tuýp 100g",
         category: "personalcare",
-        image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=400&q=80",
+        image: "assets/images/sensodyne.png",
         badge: "Chống ê buốt",
         badgeType: "fresh",
         flashSale: false
@@ -754,7 +754,7 @@ function renderProducts() {
             subtitle: "Thuận Phát Cốt Nhĩ 620ml",
             price: "85.000đ",
             productId: 32,
-            image: "https://images.unsplash.com/photo-1589135306090-e555aa88bcca?auto=format&fit=crop&w=400&q=80",
+            image: "assets/images/phu_quoc_fish_sauce.png",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
@@ -772,11 +772,11 @@ function renderProducts() {
         },
         household: {
             badge: "Sinh Học",
-            title: "Rửa Chén Aura",
-            subtitle: "Tinh Dầu Quế Can 1.2L",
+            title: "Nước rửa chén Co.opshopping",
+            subtitle: "Can 1.2L Tinh Dầu Quế",
             price: "75.000đ",
             productId: 11,
-            image: "https://images.unsplash.com/photo-1622060873536-a67bcfc6d482?auto=format&fit=crop&w=400&q=80",
+            image: "assets/images/coop_dishwash.png",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
@@ -787,7 +787,7 @@ function renderProducts() {
             subtitle: "Chai 500ml Thư Giãn",
             price: "99.000đ",
             productId: 12,
-            image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80",
+            image: "assets/images/lemongrass_shower_gel.png",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
@@ -1417,191 +1417,123 @@ function initDeliverySelection() {
 }
 
 function initCheckoutForm() {
-    const form = document.getElementById('checkout-form');
-    if (!form) return;
+    const confirmBtn = document.getElementById('confirm-order-btn');
+    if (!confirmBtn) return;
 
-    const inputs = form.querySelectorAll('.form-input');
-    
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            input.classList.remove('is-invalid');
-            const err = input.parentElement.querySelector('.error-message');
-            if (err) err.style.display = 'none';
-        });
-    });
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
+    confirmBtn.addEventListener('click', () => {
         // 1. CHECK CART EMPTY
         if (cart.length === 0) {
             alert("Giỏ hàng của bạn đang trống! Vui lòng chọn sản phẩm trước khi thanh toán.");
             return;
         }
 
-        // 2. VALIDATION
-        let isFormValid = true;
-        inputs.forEach(input => {
-            const val = input.value.trim();
-            const type = input.getAttribute('name');
-            const err = input.parentElement.querySelector('.error-message');
-            let msg = '';
+        // 2. Simulated order request
+        const originalBtnText = confirmBtn.innerHTML;
+        confirmBtn.disabled = true;
+        confirmBtn.innerHTML = '<span>Đang xác nhận đơn hàng...</span> <i class="fas fa-spinner fa-spin"></i>';
+        confirmBtn.style.opacity = '0.8';
 
-            if (!val) {
-                msg = 'Trường này không được để trống';
-                isFormValid = false;
-            } else if (type === 'email' && !validateEmail(val)) {
-                msg = 'Email không hợp lệ';
-                isFormValid = false;
-            } else if (type === 'phone' && !validatePhone(val)) {
-                msg = 'Số điện thoại phải gồm 10-11 số';
-                isFormValid = false;
-            }
+        setTimeout(() => {
+            // Restore button
+            confirmBtn.disabled = false;
+            confirmBtn.innerHTML = originalBtnText;
+            confirmBtn.style.opacity = '1';
 
-            if (msg) {
-                input.classList.add('is-invalid');
-                if (err) {
-                    err.textContent = msg;
-                    err.style.display = 'block';
-                }
-            }
-        });
+            const name = "Khách hàng";
+            const deliveryTimeStr = "Giao nhanh 36 phút";
 
-        if (isFormValid) {
-            // Simulated payment API request
-            const submitBtn = form.querySelector('.submit-btn');
-            const originalBtnText = submitBtn.innerHTML;
-
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Đang xác nhận đơn hàng...</span> <i class="fas fa-spinner fa-spin"></i>';
-            submitBtn.style.opacity = '0.8';
-
-            setTimeout(() => {
-                // Restore button
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.style.opacity = '1';
-
-                // Get values
-                const name = document.getElementById('fullname').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const deliveryType = document.querySelector('input[name="delivery-type"]:checked').value;
-                let deliveryTimeStr = "Giao nhanh 36 phút";
-                
-                if (deliveryType === 'custom') {
-                    const timeSelect = document.getElementById('delivery-time-slot');
-                    deliveryTimeStr = timeSelect.options[timeSelect.selectedIndex].text;
-                }
-
-                // --- SAVE ORDER TO HISTORY & UPDATE LOYALTY POINTS ---
-                const orderItems = cart.map(item => {
-                    const prod = products.find(p => p.id === item.id);
-                    const price = prod.flashSale ? prod.flashPrice : prod.price;
-                    return {
-                        name: prod.name,
-                        qty: item.quantity,
-                        price: price * item.quantity
-                    };
-                });
-
-                let subtotal = cart.reduce((sum, item) => {
-                    const prod = products.find(p => p.id === item.id);
-                    const price = prod.flashSale ? prod.flashPrice : prod.price;
-                    return sum + price * item.quantity;
-                }, 0);
-                let shippingFee = subtotal >= 300000 ? 0 : 25000;
-                let couponDiscount = 0;
-                if (appliedCoupon === 'COOP10') {
-                    couponDiscount = Math.round(subtotal * 0.1);
-                } else if (appliedCoupon === 'FREESHIP') {
-                    couponDiscount = shippingFee;
-                }
-                let pointsDiscount = 0;
-                if (useLoyaltyPoints) {
-                    pointsDiscount = Math.min(memberPoints * 1000, subtotal - couponDiscount);
-                }
-                const finalTotal = Math.max(0, subtotal + shippingFee - couponDiscount - pointsDiscount);
-
-                // Update loyalty points balance
-                if (useLoyaltyPoints) {
-                    memberPoints = 0;
-                } else {
-                    const potentialPointsEarned = Math.round(finalTotal * 0.01 / 1000);
-                    memberPoints += potentialPointsEarned;
-                }
-                localStorage.setItem('coop_member_points', memberPoints);
-
-                // Create and save new order
-                const orderId = 'COOP-' + Math.floor(100000 + Math.random() * 900000);
-                const orderDate = new Date().toLocaleString('vi-VN', { hour12: false });
-                const paymentMethodStr = document.querySelector('input[name="payment-method"]:checked').value.toUpperCase();
-
-                const newOrder = {
-                    id: orderId,
-                    date: orderDate,
-                    items: orderItems,
-                    deliveryTime: deliveryTimeStr,
-                    paymentMethod: paymentMethodStr,
-                    total: finalTotal
+            // --- SAVE ORDER TO HISTORY & UPDATE LOYALTY POINTS ---
+            const orderItems = cart.map(item => {
+                const prod = products.find(p => p.id === item.id);
+                const price = prod.flashSale ? prod.flashPrice : prod.price;
+                return {
+                    name: prod.name,
+                    qty: item.quantity,
+                    price: price * item.quantity
                 };
+            });
 
-                let orders = [];
-                const savedOrders = localStorage.getItem('coop_orders');
-                if (savedOrders) {
-                    try {
-                        orders = JSON.parse(savedOrders);
-                    } catch(e) {
-                        orders = [];
-                    }
+            let subtotal = cart.reduce((sum, item) => {
+                const prod = products.find(p => p.id === item.id);
+                const price = prod.flashSale ? prod.flashPrice : prod.price;
+                return sum + price * item.quantity;
+            }, 0);
+            let shippingFee = subtotal >= 300000 ? 0 : 25000;
+            let couponDiscount = 0;
+            if (appliedCoupon === 'COOP10') {
+                couponDiscount = Math.round(subtotal * 0.1);
+            } else if (appliedCoupon === 'FREESHIP') {
+                couponDiscount = shippingFee;
+            }
+            let pointsDiscount = 0;
+            if (useLoyaltyPoints) {
+                pointsDiscount = Math.min(memberPoints * 1000, subtotal - couponDiscount);
+            }
+            const finalTotal = Math.max(0, subtotal + shippingFee - couponDiscount - pointsDiscount);
+
+            // Update loyalty points balance
+            if (useLoyaltyPoints) {
+                memberPoints = 0;
+            } else {
+                const potentialPointsEarned = Math.round(finalTotal * 0.01 / 1000);
+                memberPoints += potentialPointsEarned;
+            }
+            localStorage.setItem('coop_member_points', memberPoints);
+
+            // Create and save new order
+            const orderId = 'COOP-' + Math.floor(100000 + Math.random() * 900000);
+            const orderDate = new Date().toLocaleString('vi-VN', { hour12: false });
+            const paymentMethodStr = "COD";
+
+            const newOrder = {
+                id: orderId,
+                date: orderDate,
+                items: orderItems,
+                deliveryTime: deliveryTimeStr,
+                paymentMethod: paymentMethodStr,
+                total: finalTotal
+            };
+
+            let orders = [];
+            const savedOrders = localStorage.getItem('coop_orders');
+            if (savedOrders) {
+                try {
+                    orders = JSON.parse(savedOrders);
+                } catch(e) {
+                    orders = [];
                 }
-                orders.unshift(newOrder);
-                localStorage.setItem('coop_orders', JSON.stringify(orders));
-                // ----------------------------------
+            }
+            orders.unshift(newOrder);
+            localStorage.setItem('coop_orders', JSON.stringify(orders));
+            // ----------------------------------
 
-                // Show Success Message
-                showToast(`Đơn hàng của ${name} đã được tạo thành công!`);
-                alert(`Cảm ơn bạn! Đơn hàng của bạn đã được tiếp nhận.\n\nThông tin người nhận: ${name} (${phone})\nThời gian nhận hàng: ${deliveryTimeStr}\n\nĐội ngũ giao hàng Co.opshopping sẽ liên hệ với bạn trong giây lát.`);
+            // Show Success Message
+            showToast(`Đơn hàng của bạn đã được tạo thành công!`);
+            alert(`Cảm ơn bạn! Đơn hàng của bạn đã được tiếp nhận.\n\nThời gian nhận hàng: ${deliveryTimeStr}\n\nĐội ngũ giao hàng Co.opshopping sẽ giao tới bạn trong giây lát.`);
 
-                // Reset state
-                cart = [];
-                saveCartToStorage();
-                appliedCoupon = null;
-                useLoyaltyPoints = false;
-                
-                // Reset Loyalty Points section elements
-                const cb = document.getElementById('apply-points-cb');
-                if (cb) cb.checked = false;
-                
-                const couponInput = document.getElementById('coupon-input');
-                if (couponInput) couponInput.value = '';
-                
-                const couponMsg = document.getElementById('coupon-msg');
-                if (couponMsg) couponMsg.style.display = 'none';
+            // Reset state
+            cart = [];
+            saveCartToStorage();
+            appliedCoupon = null;
+            useLoyaltyPoints = false;
+            
+            // Reset Loyalty Points section elements
+            const cb = document.getElementById('apply-points-cb');
+            if (cb) cb.checked = false;
+            
+            const couponInput = document.getElementById('coupon-input');
+            if (couponInput) couponInput.value = '';
+            
+            const couponMsg = document.getElementById('coupon-msg');
+            if (couponMsg) couponMsg.style.display = 'none';
 
-                form.reset();
-                renderCart();
+            renderCart();
 
-                // Close Drawer if open
-                const drawer = document.getElementById('cart-drawer');
-                const overlay = document.getElementById('cart-drawer-overlay');
-                if (drawer) drawer.classList.remove('open');
-                if (overlay) overlay.classList.remove('open');
-                document.body.style.overflow = '';
-                
-                // Scroll to top
-                window.scrollTo({top: 0, behavior: 'smooth'});
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
 
-            }, 1800);
-        }
+        }, 1500);
     });
-
-    function validateEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function validatePhone(phone) {
-        return /^[0-9]{10,11}$/.test(phone.replace(/[\s\-\(\)]/g, ''));
-    }
 }
 
 /* ==========================================================================
