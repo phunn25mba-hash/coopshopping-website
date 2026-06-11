@@ -1,3 +1,4 @@
+Add-Type -AssemblyName System.Web
 $port = 8080
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
@@ -48,17 +49,25 @@ while ($listener.IsListening) {
             
             $response.ContentType = $mime
             $response.ContentLength64 = $bytes.Length
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            if ($request.HttpMethod -ne "HEAD") {
+                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            }
         } else {
             $response.StatusCode = 404
             $msg = "404 Not Found: File not found - $rawUrl"
             $bytes = [System.Text.Encoding]::UTF8.GetBytes($msg)
             $response.ContentType = "text/plain; charset=utf-8"
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            $response.ContentLength64 = $bytes.Length
+            if ($request.HttpMethod -ne "HEAD") {
+                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            }
         }
         $response.Close()
     } catch {
         # Handle exceptions gracefully
-        Write-Host "Error handling request"
+        Write-Host "Error handling request: $_"
+        if ($response) {
+            try { $response.Close() } catch {}
+        }
     }
 }

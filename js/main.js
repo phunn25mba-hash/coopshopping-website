@@ -16,19 +16,7 @@ const products = [
         flashSale: true,
         flashPrice: 269000,
         soldQty: 18,
-        totalQty: 30,
-        brand: "USDA Choice",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "500g",
-        expiry: "3 ngày kể từ ngày đóng gói (Bảo quản lạnh 0-4°C)",
-        origin: "Mỹ",
-        nutrition: "Giàu Protein, Sắt và Vitamin B12 giúp bồi bổ cơ thể và tái tạo tế bào hồng cầu.",
-        recipes: ["Bò Né Cà Chua Beef", "Mì Ý Sốt Thịt Bò"],
-        reviews: [
-            { user: "Minh Anh", stars: 5, comment: "Thịt bò thăn rất mềm, vân mỡ cẩm thạch đẹp mắt, xào hay làm né đều ngon và ngọt thịt.", photo: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=150&q=80", date: "2026-06-08" },
-            { user: "Hoàng Nam", stars: 4, comment: "Độ dày vừa phải, đóng gói hút chân không sạch sẽ. Giao hàng hỏa tốc thịt vẫn còn lạnh tốt.", photo: "", date: "2026-06-09" }
-        ]
+        totalQty: 30
     },
     {
         id: 2,
@@ -43,18 +31,7 @@ const products = [
         flashSale: true,
         flashPrice: 99000,
         soldQty: 12,
-        totalQty: 40,
-        brand: "Co.op Organic",
-        standards: ["VietGAP", "Organic"],
-        isNew: true,
-        weight: "250g",
-        expiry: "5 ngày (Bảo quản lạnh 4-8°C)",
-        origin: "Đà Lạt, Việt Nam",
-        nutrition: "Chứa hàm lượng Vitamin C cao vượt trội và các hợp chất chống oxy hóa mạnh mẽ.",
-        recipes: ["Chả Giò Chiên Xoài Cát dâu tây sốt chua ngọt", "Kem sữa chua trái cây dâu tây"],
-        reviews: [
-            { user: "Thùy Hằng", stars: 5, comment: "Dâu tây quả to, mọng nước, vị chua ngọt thanh mát cực kỳ cuốn. Sẽ mua lại lần sau.", photo: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=150&q=80", date: "2026-06-08" }
-        ]
+        totalQty: 40
     },
     {
         id: 3,
@@ -66,18 +43,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=400&q=80",
         badge: "Tươi ngon",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Hợp tác xã Bến Tre",
-        standards: ["VietGAP"],
-        isNew: false,
-        weight: "1kg",
-        expiry: "7-10 ngày (Bảo quản mát)",
-        origin: "Bến Tre, Việt Nam",
-        nutrition: "Cung cấp lượng Vitamin C và Kali dồi dào, giúp tăng sức đề kháng và thanh lọc cơ thể.",
-        recipes: ["Nước cam vắt mật ong", "Salad cam sành rau củ"],
-        reviews: [
-            { user: "Đức Trí", stars: 4, comment: "Cam mọng nước, vỏ mỏng, vắt nước uống giải khát mùa hè rất tốt.", photo: "", date: "2026-06-07" }
-        ]
+        flashSale: false
     },
     {
         id: 4,
@@ -89,18 +55,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=400&q=80",
         badge: "-12%",
         badgeType: "sale",
-        flashSale: false,
-        brand: "De Cecco",
-        standards: ["Nhập khẩu", "Organic"],
-        isNew: false,
-        weight: "500g",
-        expiry: "24 tháng kể từ ngày sản xuất",
-        origin: "Ý",
-        nutrition: "Giàu Carbs phức hợp cung cấp năng lượng bền bỉ cho cơ thể mà không tăng nhanh đường huyết.",
-        recipes: ["Mì Ý Sốt Cà Chua", "Mì Ý Carbonara sốt kem"],
-        reviews: [
-            { user: "Mỹ Linh", stars: 5, comment: "Mì De Cecco luộc giữ được độ giòn dai (al dente) đặc trưng của Ý, nấu sốt bò bằm cà chua ngon tuyệt hảo.", photo: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=150&q=80", date: "2026-06-06" }
-        ]
+        flashSale: false
     },
     {
         id: 5,
@@ -112,18 +67,7 @@ const products = [
         image: "assets/images/coop_cashews.png",
         badge: "Độc quyền",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Co.opshopping",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "350g",
-        expiry: "12 tháng kể từ ngày sản xuất",
-        origin: "Bình Phước, Việt Nam",
-        nutrition: "Chứa nhiều axit béo không bão hòa đơn tốt cho tim mạch, Magie và các khoáng chất vi lượng.",
-        recipes: ["Ăn trực tiếp làm món ăn vặt lành mạnh", "Làm sữa hạt điều ngũ cốc"],
-        reviews: [
-            { user: "Hải Yến", stars: 5, comment: "Hạt điều giòn rụm, vị bùi béo, rang muối vừa vặn không bị quá mặn. Hộp đóng kín rất sang trọng.", photo: "", date: "2026-06-05" }
-        ]
+        flashSale: false
     },
     {
         id: 6,
@@ -135,18 +79,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=400&q=80",
         badge: "Bán chạy",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Horizon",
-        standards: ["Nhập khẩu", "Organic"],
-        isNew: false,
-        weight: "946ml",
-        expiry: "12 tháng (Bảo quản lạnh sau khi mở nắp)",
-        origin: "Mỹ",
-        nutrition: "Giàu Canxi, Vitamin D3 tăng cường chiều cao và Vitamin B12 dồi dào.",
-        recipes: ["Uống trực tiếp", "Làm sinh tố dâu tây sữa tươi", "Nấu trà sữa trân châu"],
-        reviews: [
-            { user: "Quốc Khánh", stars: 5, comment: "Sữa Horizon Organic thì khỏi bàn rồi, vị ngậy béo rất thơm, bé nhà mình rất mê sữa này.", photo: "", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 7,
@@ -161,18 +94,7 @@ const products = [
         flashSale: true,
         flashPrice: 59000,
         soldQty: 35,
-        totalQty: 50,
-        brand: "Georgia Premium",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "1L",
-        expiry: "18 tháng kể từ ngày sản xuất",
-        origin: "Georgia",
-        nutrition: "Cung cấp lượng lớn Polyphenol chống oxy hóa mạnh gấp 3 lần trà xanh, hỗ trợ sức khỏe tim mạch.",
-        recipes: ["Uống trực tiếp làm nước giải khát tốt cho da", "Pha mocktail lựu đỏ"],
-        reviews: [
-            { user: "Lan Hương", stars: 5, comment: "Nước ép nguyên chất đậm vị, chua ngọt tự nhiên, không pha đường hóa học. Giá khuyến mãi cực hời.", photo: "assets/images/pomegranate_juice.png", date: "2026-06-08" }
-        ]
+        totalQty: 50
     },
     {
         id: 8,
@@ -184,18 +106,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=400&q=80",
         badge: "Cực hot",
         badgeType: "sale",
-        flashSale: false,
-        brand: "Heart of Darkness",
-        standards: [],
-        isNew: false,
-        weight: "330ml",
-        expiry: "12 tháng kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Nước uống lên men tự nhiên có cồn, mang hương thơm nồng nàn của hoa bia và hoa lài.",
-        recipes: ["Thưởng thức mát lạnh cùng đồ nhắm nướng", "Làm sốt bia cho món bò hầm"],
-        reviews: [
-            { user: "Thế Vinh", stars: 5, comment: "Hương hoa lài thơm dịu đặc trưng, vị đắng đậm đà đúng gu bia IPA. Chất lượng rất tuyệt.", photo: "", date: "2026-06-04" }
-        ]
+        flashSale: false
     },
     {
         id: 9,
@@ -210,18 +121,7 @@ const products = [
         flashSale: true,
         flashPrice: 38000,
         soldQty: 14,
-        totalQty: 30,
-        brand: "Mövenpick",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "100g",
-        expiry: "18 tháng (Bảo quản đông lạnh -18°C)",
-        origin: "Thụy Sĩ",
-        nutrition: "Men vi sinh có lợi cho hệ tiêu hóa hòa quyện cùng canxi từ sữa tươi nguyên chất Thụy Sĩ.",
-        recipes: ["Ăn trực tiếp tráng miệng", "Ăn kèm salad hoa quả tươi"],
-        reviews: [
-            { user: "Hương Giang", stars: 5, comment: "Vị chua dịu nhẹ của sữa chua hòa quyện với vị trái cây ngọt thơm, kết cấu kem mịn màng ngậy béo.", photo: "", date: "2026-06-08" }
-        ]
+        totalQty: 30
     },
     {
         id: 10,
@@ -233,18 +133,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
         badge: "Thơm ngon",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Harrys",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "500g",
-        expiry: "25 ngày kể từ ngày sản xuất",
-        origin: "Pháp",
-        nutrition: "Năng lượng tinh bột lành mạnh kết hợp với protein từ sữa và bơ thực vật chất lượng.",
-        recipes: ["Bữa sáng nhanh gọn với bơ lạt", "Kẹp trứng chảo pate cho bữa xế"],
-        reviews: [
-            { user: "Đăng Khoa", stars: 4, comment: "Bánh mì thớ dai dài, thơm đậm mùi bơ sữa và hoa cúc rất đặc trưng. Ăn sáng tiện lợi cực kỳ.", photo: "", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 11,
@@ -256,18 +145,7 @@ const products = [
         image: "assets/images/coop_dishwash.png",
         badge: "Sinh học",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Co.opshopping",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "1.2L",
-        expiry: "3 năm kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Chiết xuất enzym sinh học và tinh dầu quế tự nhiên khử mùi hôi tanh hiệu quả, an toàn da tay.",
-        recipes: ["Rửa chén đĩa, xoong nồi gia đình", "Ngâm rửa bình sữa trẻ em"],
-        reviews: [
-            { user: "Thu Cúc", stars: 5, comment: "Nước rửa chén hương quế rất thơm, sạch dầu mỡ nhanh và đặc biệt là không hề làm khô ráp da tay.", photo: "assets/images/coop_dishwash.png", date: "2026-06-07" }
-        ]
+        flashSale: false
     },
     {
         id: 12,
@@ -282,18 +160,7 @@ const products = [
         flashSale: true,
         flashPrice: 99000,
         soldQty: 5,
-        totalQty: 15,
-        brand: "Aura Herbals",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "500ml",
-        expiry: "3 năm kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Chiết xuất tinh dầu sả chanh thanh lọc độc tố da, kết hợp tinh chất bạc hà làm mát và kháng khuẩn.",
-        recipes: ["Tắm thư giãn hàng ngày giúp giải tỏa mệt mỏi căng thẳng"],
-        reviews: [
-            { user: "Ngọc Trâm", stars: 5, comment: "Mùi sả chanh cực kỳ thư giãn như đang đi spa, tắm xong da mát lạnh sảng khoái vô cùng.", photo: "assets/images/lemongrass_shower_gel.png", date: "2026-06-08" }
-        ]
+        totalQty: 15
     },
     {
         id: 13,
@@ -305,18 +172,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=400&q=80",
         badge: "Đặc sản",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Hợp tác xã Hòa Lộc",
-        standards: ["VietGAP"],
-        isNew: false,
-        weight: "1kg",
-        expiry: "3-5 ngày (Bảo quản mát)",
-        origin: "Tiền Giang, Việt Nam",
-        nutrition: "Giàu Vitamin A, C giúp sáng mắt, đẹp da và nâng cao khả năng miễn dịch.",
-        recipes: ["Sinh tố xoài chín", "Làm topping cho salad trái cây ăn vặt", "Ăn trực tiếp chín ngọt"],
-        reviews: [
-            { user: "Quang Đăng", stars: 5, comment: "Xoài chín vàng ươm, ngọt lịm không xơ, thịt dày và hạt cực nhỏ. Xứng danh xoài cát loại 1.", photo: "", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 14,
@@ -328,18 +184,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1556801712-76c8eb07bbc9?auto=format&fit=crop&w=400&q=80",
         badge: "Fresh",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Đà Lạt Farm",
-        standards: ["VietGAP"],
-        isNew: false,
-        weight: "250g",
-        expiry: "3-5 ngày (Bảo quản lạnh ngăn rau)",
-        origin: "Lâm Đồng, Việt Nam",
-        nutrition: "Giàu chất xơ hòa tan, nước khoáng tự nhiên, axit folic giúp hỗ trợ tiêu hóa tốt.",
-        recipes: ["Salad Bò Né Cà Chua", "Rau cuốn thịt nướng bơ tỏi"],
-        reviews: [
-            { user: "Hồng Nhung", stars: 4, comment: "Cây xà lách tươi roi rói, không bị dập nát lá nào, ăn giòn và ngọt nước.", photo: "", date: "2026-06-06" }
-        ]
+        flashSale: false
     },
     {
         id: 15,
@@ -351,18 +196,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=400&q=80",
         badge: "-20%",
         badgeType: "sale",
-        flashSale: false,
-        brand: "Co.op Organic",
-        standards: ["VietGAP", "Organic"],
-        isNew: false,
-        weight: "500g",
-        expiry: "5-7 ngày (Bảo quản mát)",
-        origin: "Đà Lạt, Việt Nam",
-        nutrition: "Chứa hàm lượng Lycopene cực cao tốt cho tim mạch và ngừa lão hóa da.",
-        recipes: ["Bò Né Cà Chua Beef", "Mì Ý Sốt Cà Chua", "Canh cà chua trứng gà"],
-        reviews: [
-            { user: "Xuân Trường", stars: 5, comment: "Cà chua trái siêu to khổng lồ, chắc thịt, ít hạt và nhiều bột, làm sốt cà chua hay salad đều tuyệt đỉnh.", photo: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=150&q=80", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 16,
@@ -371,21 +205,10 @@ const products = [
         oldPrice: null,
         unit: "Gói 300g",
         category: "fresh",
-        image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_640.jpg",
+        image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=400&q=80",
         badge: "Chuẩn VietGAP",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Đà Lạt Farm",
-        standards: ["VietGAP"],
-        isNew: true,
-        weight: "300g",
-        expiry: "5 ngày (Bảo quản lạnh)",
-        origin: "Đà Lạt, Việt Nam",
-        nutrition: "Giàu xơ, Sulforaphane kháng viêm mạnh mẽ và các vitamin khoáng chất thiết yếu.",
-        recipes: ["Bò xào súp lơ xanh baby", "Canh súp lơ sườn non", "Súp lơ hấp chấm kho quẹt"],
-        reviews: [
-            { user: "Bảo Trâm", stars: 5, comment: "Súp lơ baby giòn ngọt hơn nhiều súp lơ thường, xào thịt bò chín tới ăn giòn sần sật rất ngon.", photo: "https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_640.jpg", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 17,
@@ -397,18 +220,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=400&q=80",
         badge: "Bán chạy",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Leroy Salmon",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "250g",
-        expiry: "2 ngày kể từ khi đóng gói (Bảo quản lạnh 0-2°C)",
-        origin: "Nauy",
-        nutrition: "Nguồn axit béo Omega-3 dồi dào cực tốt cho brain bộ, thị lực và tim mạch.",
-        recipes: ["Cá hồi áp chảo sốt bơ chanh", "Cá hồi nướng muối tiêu tỏi"],
-        reviews: [
-            { user: "Đình Phong", stars: 5, comment: "Cá hồi tươi rói, màu cam sáng đẹp, thớ mỡ đều tăm tắp. Áp chảo sốt chanh bơ ngon ngọt béo ngậy.", photo: "", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 18,
@@ -420,18 +232,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=400&q=80",
         badge: "Giàu dinh dưỡng",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Ba Huân",
-        standards: ["VietGAP", "Organic"],
-        isNew: false,
-        weight: "10 quả",
-        expiry: "30 ngày (Bảo quản mát)",
-        origin: "Việt Nam",
-        nutrition: "Hàm lượng dinh dưỡng và vi chất tốt cao gấp đôi trứng gà thường, giàu DHA và lecithin.",
-        recipes: ["Canh súp lơ trứng gà ác", "Trứng gà ác luộc lòng đào", "Chả giò tôm thịt trứng gà"],
-        reviews: [
-            { user: "Kim Chi", stars: 5, comment: "Quả trứng nhỏ xinh nhưng lòng đỏ siêu to và vàng ươm, làm canh hay rán đều rất thơm, không bị tanh.", photo: "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=150&q=80", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 19,
@@ -443,18 +244,7 @@ const products = [
         image: "assets/images/bavi_yogurt.png",
         badge: "Ăn vặt",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Sữa Ba Vì",
-        standards: [],
-        isNew: false,
-        weight: "120g",
-        expiry: "45 ngày (Bảo quản lạnh 4-6°C)",
-        origin: "Ba Vì, Việt Nam",
-        nutrition: "Cung cấp lợi khuẩn sữa chua lên men tự nhiên và chất xơ từ gạo nếp cẩm tốt cho tiêu hóa.",
-        recipes: ["Ăn trực tiếp giải nhiệt làm bữa phụ lành mạnh"],
-        reviews: [
-            { user: "Yến Nhi", stars: 5, comment: "Nếp cẩm dẻo bùi, sữa chua thơm ngậy vừa vặn, ăn lạnh rất mát và ngon bụng.", photo: "assets/images/bavi_yogurt.png", date: "2026-06-07" }
-        ]
+        flashSale: false
     },
     {
         id: 20,
@@ -463,21 +253,10 @@ const products = [
         oldPrice: null,
         unit: "Hũ 100ml",
         category: "yogurt",
-        image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&w=400&q=80",
         badge: "Premium",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Haagen-Dazs",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "100ml",
-        expiry: "24 tháng (Bảo quản tủ đông -18°C)",
-        origin: "Pháp",
-        nutrition: "Kem cao cấp sản xuất từ sữa tươi nguyên chất Pháp kết hợp tinh chất quả vani Madagascar thượng hạng.",
-        recipes: ["Ăn trực tiếp làm món tráng miệng thượng lưu", "Ăn kèm bánh crepe nóng sốt dâu tây"],
-        reviews: [
-            { user: "Phú Cường", stars: 5, comment: "Đúng chuẩn kem Haagen-Dazs Pháp, kem đặc sánh mịn màng, thơm đậm mùi vani tự nhiên chứ không hương liệu giả tạo.", photo: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=150&q=80", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 21,
@@ -489,18 +268,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=400&q=80",
         badge: "Nhập khẩu",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Anchor",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "227g",
-        expiry: "18 tháng (Bảo quản đông lạnh)",
-        origin: "New Zealand",
-        nutrition: "Giàu chất béo tự nhiên từ sữa bò New Zealand ăn cỏ tự nhiên, bổ sung năng lượng dồi dào.",
-        recipes: ["Bò Né Cà Chua Beef làm dậy mùi thơm ngậy", "Làm bánh mì croissant bơ tỏi"],
-        reviews: [
-            { user: "Nhật Minh", stars: 4, comment: "Bơ rất thơm, làm bò né hay xào ngô đều cực kỳ dậy mùi béo ngậy. Thương hiệu New Zealand uy tín.", photo: "", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 22,
@@ -512,18 +280,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?auto=format&fit=crop&w=400&q=80",
         badge: "Ăn liền",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "President",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "200g (10 lát)",
-        expiry: "12 tháng (Bảo quản lạnh 4-8°C)",
-        origin: "Pháp",
-        nutrition: "Nguồn Canxi dồi dào tăng chiều cao và đạm cô đặc từ phô mai Cheddar Pháp trứ danh.",
-        recipes: ["Kẹp sandwich bò nướng phô mai chảy", "Làm hăm-bơ-gơ kẹp phô mai lát"],
-        reviews: [
-            { user: "Bảo Ngọc", stars: 5, comment: "Lát phô mai dày dặn, kẹp vào mì nóng hay burger nóng chảy ra dẻo dẻo béo ngậy ăn cực mê luôn.", photo: "", date: "2026-06-06" }
-        ]
+        flashSale: false
     },
     {
         id: 23,
@@ -535,18 +292,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?auto=format&fit=crop&w=400&q=80",
         badge: "Có thịt thật",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Vifon",
-        standards: [],
-        isNew: false,
-        weight: "120g",
-        expiry: "9 tháng kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Bánh phở dai mềm, gói nước cốt hầm xương thơm nồng cùng gói thịt bò thật tiệt trùng bổ dưỡng.",
-        recipes: ["Chế nước sôi ăn liền nhanh gọn cho bữa sáng", "Phở bò xào giòn"],
-        reviews: [
-            { user: "Đăng Huy", stars: 4, comment: "Có gói thịt thật ăn sướng miệng hẳn, nước dùng ngọt thanh vị phở bò Hà Nội truyền thống.", photo: "", date: "2026-06-05" }
-        ]
+        flashSale: false
     },
     {
         id: 24,
@@ -555,21 +301,10 @@ const products = [
         oldPrice: null,
         unit: "Gói 400g",
         category: "packaged",
-        image: "https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1612966608967-312ba599102e?auto=format&fit=crop&w=400&q=80",
         badge: "Organic",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Co.op Organic",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "400g",
-        expiry: "12 tháng kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Sản xuất từ 100% bột gạo hữu cơ sạch, không chứa chất bảo quan hay hàn gia hóa học gây hại.",
-        recipes: ["Luộc làm bún tươi ăn kèm chả giò", "Làm bún trộn thịt bò xào sả ớt"],
-        reviews: [
-            { user: "Mai Hoa", stars: 5, comment: "Sợi bún luộc lên trắng mềm, không bị nát gãy, dai ngon không khác gì bún tươi ngoài chợ mà lại sạch và an tâm.", photo: "https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?auto=format&fit=crop&w=150&q=80", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 25,
@@ -581,18 +316,7 @@ const products = [
         image: "assets/images/cj_dumplings.png",
         badge: "Giảm 18%",
         badgeType: "sale",
-        flashSale: false,
-        brand: "CJ Cầu Tre",
-        standards: [],
-        isNew: false,
-        weight: "400g",
-        expiry: "12 tháng (Bảo quản tủ đông -18°C)",
-        origin: "Việt Nam",
-        nutrition: "Nhân tôm nguyên con giòn sần sật kết hợp thịt heo xay và rau thơm bọc trong lớp vỏ bột mỏng dai.",
-        recipes: ["Sủi cảo hấp chấm xì dầu tỏi ớt", "Sủi cảo nấu mì nước sườn heo"],
-        reviews: [
-            { user: "Thảo Vy", stars: 5, comment: "Nhân tôm thịt đầy đặn cắn ngập miệng, vị ngọt tự nhiên của tôm tươi ăn rất đã.", photo: "assets/images/cj_dumplings.png", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 26,
@@ -601,21 +325,10 @@ const products = [
         oldPrice: null,
         unit: "Gói 500g",
         category: "frozen",
-        image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80",
+        image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
         badge: "Giòn rụm",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Co.opshopping",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "500g",
-        expiry: "12 tháng (Bảo quản tủ đông -18°C)",
-        origin: "Việt Nam",
-        nutrition: "Vỏ bánh rế giòn rụm, nhân thịt heo và tôm đất tự nhiên kết hợp miến, mộc nhĩ giàu dinh dưỡng.",
-        recipes: ["Chả Giò Chiên Xoài Cát ăn kèm bún tươi và rau sống", "Làm món khai vị tiệc gia đình"],
-        reviews: [
-            { user: "Duy Mạnh", stars: 5, comment: "Bánh tráng rế chiên lên cực kỳ giòn rụm lâu xẹp, nhân bên trong thơm bùi vị tôm thịt và khoai môn.", photo: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=150&q=80", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 27,
@@ -627,18 +340,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=80",
         badge: "Tiện lợi",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "McCain",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "1kg",
-        expiry: "18 tháng (Bảo quản đông lạnh -18°C)",
-        origin: "Bỉ",
-        nutrition: "Khoai tây cắt sợi Bỉ tẩm lớp tinh bột nhẹ giúp chiên giòn tan bên ngoài, bùi mềm bên trong.",
-        recipes: ["Chiên ngập dầu ăn kèm tương cà Heinz", "Làm khoai tây lắc phô mai Cheddar"],
-        reviews: [
-            { user: "Gia Bảo", stars: 4, comment: "Khoai tây cọng to dài, chiên nồi chiên không dầu giòn rụm mà bên trong vẫn mềm xốp thơm bùi.", photo: "", date: "2026-06-05" }
-        ]
+        flashSale: false
     },
     {
         id: 28,
@@ -650,18 +352,7 @@ const products = [
         image: "assets/images/coop_potatoes.png",
         badge: "Ăn vặt",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Co.opshopping",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "95g",
-        expiry: "9 tháng kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Lát khoai tây mỏng cắt lát sấy khô, tẩm ướp gia vị tự nhiên giòn rụm vui tai ngon miệng.",
-        recipes: ["Ăn vặt giải trí khi xem phim", "Món ăn nhẹ trong các buổi dã ngoại ngoại khóa"],
-        reviews: [
-            { user: "Thanh Hằng", stars: 5, comment: "Khoai tây giòn tan thơm béo nhẹ, ít dầu mỡ hơn các loại khoai đóng gói khác ngoài thị trường.", photo: "assets/images/coop_potatoes.png", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 29,
@@ -673,18 +364,7 @@ const products = [
         image: "assets/images/haribo_gummy.png",
         badge: "-17%",
         badgeType: "sale",
-        flashSale: false,
-        brand: "Haribo",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "80g",
-        expiry: "18 tháng kể từ ngày sản xuất",
-        origin: "Thổ Nhĩ Kỳ",
-        nutrition: "Kẹo dẻo hương trái cây tự nhiên (dâu, cam, chanh, táo) bổ sung gelatin dẻo dai vui miệng.",
-        recipes: ["Ăn vặt trực tiếp làm quà thưởng cho trẻ nhỏ", "Trang trí cho bánh ngọt, kem sữa chua"],
-        reviews: [
-            { user: "Phương Thảo", stars: 5, comment: "Chú gấu Haribo dẻo dai sần sật, vị chua chua ngọt ngọt hương quả tự nhiên ăn không bị ngán chút nào.", photo: "assets/images/haribo_gummy.png", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 30,
@@ -696,18 +376,7 @@ const products = [
         image: "assets/images/kelloggs_cereal.png",
         badge: "Bữa sáng",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Kellogg's",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "275g",
-        expiry: "12 tháng kể từ ngày sản xuất",
-        origin: "Thái Lan",
-        nutrition: "Làm từ hạt bắp vàng tự nhiên nguyên cám, bổ sung 9 loại vitamin và khoáng chất thiết yếu.",
-        recipes: ["Ăn sáng nhanh với sữa tươi Horizon", "Làm lớp bột chiên xù giòn cho ức gà"],
-        reviews: [
-            { user: "Hữu Phước", stars: 4, comment: "Cereal giòn bắp thơm nhẹ, ăn kèm sữa tươi mát lạnh buổi sáng cực kỳ nhanh gọn đủ chất dinh dưỡng.", photo: "assets/images/kelloggs_cereal.png", date: "2026-06-07" }
-        ]
+        flashSale: false
     },
     {
         id: 31,
@@ -719,18 +388,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80",
         badge: "Bánh tươi",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Aura Bakery",
-        standards: [],
-        isNew: true,
-        weight: "60g",
-        expiry: "2 ngày kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Bánh sừng bò nướng ngàn lớp thơm phức mùi bơ lạt nguyên chất béo ngậy tan trong miệng.",
-        recipes: ["Kẹp phô mai Cheddar nướng chảy làm bữa sáng", "Ăn kèm tách trà nóng buổi xế"],
-        reviews: [
-            { user: "Quỳnh Dao", stars: 5, comment: "Bánh mì ngàn lớp thơm phức mùi bơ tươi New Zealand, nướng lại lòa vi sóng 30s vỏ giòn rụm bên trong xốp mềm.", photo: "", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 32,
@@ -742,18 +400,7 @@ const products = [
         image: "assets/images/phu_quoc_fish_sauce.png",
         badge: "40 độ đạm",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Thuận Phát",
-        standards: ["VietGAP"],
-        isNew: false,
-        weight: "620ml",
-        expiry: "2 năm kể từ ngày sản xuất",
-        origin: "Phú Quốc, Việt Nam",
-        nutrition: "Nước mắm cốt nhĩ làm từ cá cơm tươi ủ chượp thùng gỗ Phú Quốc, giàu đạm và axit amin tự nhiên.",
-        recipes: ["Làm nước chấm tỏi ớt chấm chả giò", "Nêm nếm món thịt bò xào sả ớt"],
-        reviews: [
-            { user: "Bác Ba", stars: 5, comment: "Nước mắm vị mặn mòi đậm đà kèm hậu vị ngọt tự nhiên của cá cơm tươi, chấm thịt luộc thì hết sảy.", photo: "assets/images/phu_quoc_fish_sauce.png", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 33,
@@ -765,18 +412,7 @@ const products = [
         image: "assets/images/knorr_seasoning.png",
         badge: "Tiết kiệm",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Knorr",
-        standards: [],
-        isNew: false,
-        weight: "900g",
-        expiry: "18 tháng kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Chiết xuất nước hầm xương ống và thịt thăn tươi ngon, bổ sung vitamin A tăng cường thị lực.",
-        recipes: ["Nêm nếm canh cà chua trứng gà", "Ướp thịt bò né thăn mềm"],
-        reviews: [
-            { user: "Mẹ Thủy", stars: 5, comment: "Gói lớn tiết kiệm, hạt nêm hầm xương ngọt thanh vừa vị, dùng kho hay nấu canh đều rất đậm đà.", photo: "assets/images/knorr_seasoning.png", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 34,
@@ -788,18 +424,7 @@ const products = [
         image: "assets/images/heinz_ketchup.png",
         badge: "Heinz Mỹ",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Heinz",
-        standards: ["Nhập khẩu"],
-        isNew: false,
-        weight: "300g",
-        expiry: "24 tháng kể từ ngày sản xuất",
-        origin: "Mỹ",
-        nutrition: "Chiết xuất tương cà chua chín đỏ tự nhiên đậm đà, không phụ gia độc hại tốt cho sức khỏe.",
-        recipes: ["Chấm khoai tây chiên McCain", "Làm sốt cà chua cho mì Ý sốt bò bằm"],
-        reviews: [
-            { user: "Tú Anh", stars: 5, comment: "Tương cà Heinz trứ danh vị chua ngọt cân bằng, mịn màng và đặc sánh hơn hẳn tương cà thường.", photo: "assets/images/heinz_ketchup.png", date: "2026-06-09" }
-        ]
+        flashSale: false
     },
     {
         id: 35,
@@ -811,18 +436,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80",
         badge: "Giải khát",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Coca-Cola",
-        standards: [],
-        isNew: false,
-        weight: "320ml",
-        expiry: "12 tháng kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Nước giải khát có gas vị cola nguyên bản sảng khoái cực đỉnh, công thức ít đường tốt cho cơ thể.",
-        recipes: ["Uống trực tiếp cùng nước đá viên lạnh giải khát", "Làm gà kho Coca-Cola độc đáo"],
-        reviews: [
-            { user: "Đăng Khoa", stars: 5, comment: "Cola uống lạnh ga sủi mạnh sảng khoái dã man, ăn đồ nướng hay đồ chiên kèm lon nước này là đỉnh nhất.", photo: "", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 36,
@@ -834,18 +448,7 @@ const products = [
         image: "assets/images/sunlight_floor_cleaner.png",
         badge: "Thơm lâu",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Sunlight",
-        standards: [],
-        isNew: false,
-        weight: "2kg",
-        expiry: "3 năm kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Sử dụng tinh dầu thảo mộc thiên nhiên làm sạch bong bóng sàn, tỏa hương thơm ngát dễ chịu lâu phai.",
-        recipes: ["Lau sạch sàn nhà các loại đá gạch, gỗ cao cấp"],
-        reviews: [
-            { user: "Chị Hà", stars: 5, comment: "Lau sàn cực kỳ nhanh khô, không bị nhớt rít bàn chân, hương hoa thảo mộc thơm nhẹ nhàng và đuổi muỗi tốt.", photo: "assets/images/sunlight_floor_cleaner.png", date: "2026-06-08" }
-        ]
+        flashSale: false
     },
     {
         id: 37,
@@ -857,18 +460,7 @@ const products = [
         image: "assets/images/silkwell_tissue.png",
         badge: "Mềm mịn",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Silkwell",
-        standards: [],
-        isNew: true,
-        weight: "200 tờ",
-        expiry: "5 năm kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Sản xuất từ 100% bột giấy tự nhiên nguyên chất, khăn giấy rút dai mềm mịn màng tuyệt đối.",
-        recipes: ["Sử dụng lau mặt, lau miệng trong bữa ăn gia đình", "Lau sạch vết bẩn nhẹ trên bàn ăn"],
-        reviews: [
-            { user: "Thùy Lâm", stars: 5, comment: "Giấy lụa siêu dai mềm, không hề bị mủn vụn bột giấy khi lau ướt, dùng rất êm da mặt.", photo: "assets/images/silkwell_tissue.png", date: "2026-06-07" }
-        ]
+        flashSale: false
     },
     {
         id: 38,
@@ -880,18 +472,7 @@ const products = [
         image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=400&q=80",
         badge: "Sinh học",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Aura Herbals",
-        standards: ["Organic"],
-        isNew: false,
-        weight: "300ml",
-        expiry: "3 năm kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Chiết xuất từ bồ kết đun cô đặc, hương nhu, vỏ bưởi giúp nuôi dưỡng chân tóc đen mượt óng ả.",
-        recipes: ["Gội đầu hàng ngày dưỡng chân tóc khỏe mạnh ngăn rụng"],
-        reviews: [
-            { user: "Chị Mai", stars: 5, comment: "Dầu gội bồ kết vỏ bưởi thơm cổ điển rất dễ chịu, gội được hơn 2 tuần thấy bớt rụng tóc và tóc mềm bóng hẳn.", photo: "", date: "2026-06-06" }
-        ]
+        flashSale: false
     },
     {
         id: 39,
@@ -903,23 +484,114 @@ const products = [
         image: "assets/images/coop_toothpaste.png",
         badge: "Chống ê buốt",
         badgeType: "fresh",
-        flashSale: false,
-        brand: "Co.opshopping",
-        standards: ["Organic"],
-        isNew: true,
-        weight: "100g",
-        expiry: "3 năm kể từ ngày sản xuất",
-        origin: "Việt Nam",
-        nutrition: "Hoạt chất sinh học tự nhiên củng cố men răng, tạo màng bọc chống ê buốt khi ăn đồ nóng lạnh.",
-        recipes: ["Đánh răng ít nhất ngày 2 lần giúp bảo vệ nụ cười sáng khỏe"],
-        reviews: [
-            { user: "Huy Hoàng", stars: 5, comment: "Kem đánh răng vị bạc hà trà xanh tự nhiên mát nhẹ, giảm hẳn cảm giác ê buốt răng khi uống đá.", photo: "assets/images/coop_toothpaste.png", date: "2026-06-08" }
-        ]
+        flashSale: false
     }
 ];
 
+// 2. STATE MANAGEMENT
+let cart = [];
+let memberPoints = localStorage.getItem('coop_member_points') !== null ? parseInt(localStorage.getItem('coop_member_points')) : 120;
+let useLoyaltyPoints = false;
+let appliedCoupon = null; // Can be 'AURA10' (10% off) or 'FREESHIP' (0đ shipping)
+let currentCategory = 'all';
+let searchKeyword = '';
+
+// DOM Elements
+document.addEventListener('DOMContentLoaded', () => {
+    loadCartFromStorage();
+    initTheme();
+    initHeader();
+    initMobileMenu();
+    initCartDrawer();
+    initProductFilter();
+    initSearch();
+    initSearchAutocomplete();
+    initDeliverySelection();
+    initCheckoutForm();
+    initFlashCountdown();
+    initCouponSuggestions();
+    initOrderHistory();
+    renderFlashSales();
+    renderProducts();
+    renderCart();
+});
+
 /* ==========================================================================
    THEME SWITCHER
+   ========================================================================== */
+function initTheme() {
+    // Force only light theme and clean up storage
+    document.body.classList.remove('dark-theme');
+    localStorage.removeItem('theme');
+}
+
+/* ==========================================================================
+   HEADER ACTIONS
+   ========================================================================== */
+function initHeader() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
+
+// Mobile hamburger
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    if (!hamburger || !navMenu) return;
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
+    });
+}
+
+
+
+/* ==========================================================================
+   PRODUCT RENDERING & CATEGORIES FILTER
+   ========================================================================== */
+function renderProducts() {
+    const container = document.getElementById('categories-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    const categoryBanners = {
+        all: {
+            title: "Khuyến Mãi HOT Cực Khủng",
+            desc: "Sản phẩm giảm giá đặc biệt sâu, đảm bảo tươi ngon và chất lượng hàng đầu.",
+            image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
+        },
+        fruit: {
+            title: "Thế Giới Trái Cây",
+            desc: "Trái cây nhập khẩu chuẩn VietGAP, tươi sạch ngọt lành mỗi ngày.",
+            image: "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&w=1200&q=80"
+        },
+        fresh: {
+            title: "Rau Củ Quả Tươi Sạch",
+            desc: "Rau hữu cơ chuẩn GlobalGAP, thu hoạch mới mỗi sáng sớm.",
+            image: "https://images.unsplash.com/photo-1566385101042-1a010c129fa6?auto=format&fit=crop&w=1200&q=80"
+        },
+        meat: {
+            title: "Thịt & Cá & Trứng & Hải Sản",
+            desc: "Nguồn đạm cao cấp, an toàn vệ sinh, kiểm dịch nghiêm ngặt.",
+            image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1200&q=80"
+        },
+        yogurt: {
+            title: "Kem & Sữa Chua Trái Cây",
+            desc: "Thơm béo, mát lạnh ngọt ngào từ các thương hiệu sữa hàng đầu.",
+            image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80"
+        },
+        beverage: {
+            title: "Sữa & Bơ & Phô Mai Dinh Dưỡng",
             desc: "Bổ sung canxi và chất béo tự nhiên cho cả gia đình.",
             image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1200&q=80"
         },
@@ -994,7 +666,7 @@ const products = [
             subtitle: "Baby Organic Gói 300g",
             price: "45.000đ",
             productId: 16,
-            image: "https://images.unsplash.com/photo-1568584269604-55860b8d8569?auto=format&fit=crop&w=400&q=80",
+            image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=400&q=80",
             bg: "linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%)",
             titleColor: "#0369A1",
             subColor: "#0284C7"
