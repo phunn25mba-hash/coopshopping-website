@@ -46,7 +46,6 @@
 
             <!-- Desktop Navigation Links (Kingfoodmart style) -->
             <nav class="header-nav-links">
-                <a href="#" class="nav-item-link" id="recipes-link">Cẩm nang</a>
                 <a href="#products-section" class="nav-item-link">Siêu thị</a>
                 <a href="#category-block-all" class="nav-item-link">Khuyến mãi</a>
                 <a href="#" class="nav-item-link" id="loyalty-link">Thành viên</a>
@@ -815,67 +814,7 @@
         </div>
     </div>
 
-    <!-- RECIPES BLOG DRAWER (Cẩm nang nấu ăn) -->
-    <div class="cart-drawer-overlay" id="recipes-overlay"></div>
-    <div class="cart-drawer" id="recipes-drawer" role="dialog" aria-modal="true" aria-labelledby="recipes-title" style="width: 100%; max-width: 550px;">
-        <div class="cart-drawer-header">
-            <h3 id="recipes-title"><i class="fa-solid fa-book-open" style="color: var(--accent-primary); margin-right: 6px;"></i> Cẩm Nang Nội Trợ</h3>
-            <button class="cart-close-btn" id="recipes-close-btn" aria-label="Đóng cẩm nang nấu ăn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-        <div class="cart-drawer-body" id="recipes-drawer-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem; overflow-y: auto;">
-            <!-- Recipe 1 -->
-            <div class="recipe-card-box" style="border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); background: #FFFFFF; text-align: left;">
-                <div style="height: 180px; position: relative;">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;">
-                    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #FFFFFF; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; backdrop-filter: blur(4px);">Món ăn chính</span>
-                </div>
-                <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary); margin: 0;">Bò Né Cà Chua Beef & Bơ Lạt</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Thịt bò Mỹ béo ngậy được nướng chín tới trên chảo gang với bơ lạt Anchor và nước sốt cà chua beef đậm vị, ăn kèm bánh mì giòn tan tuyệt vời.</p>
-                    
-                    <div style="background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 0.8rem; margin: 0.5rem 0;">
-                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase;">Nguyên liệu có sẵn trong cửa hàng:</div>
-                        <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 1.2rem; margin: 0; display: flex; flex-direction: column; gap: 0.2rem;">
-                            <li>Thịt thăn bò Mỹ Premium (ID: 1)</li>
-                            <li>Cà chua Beef Đà Lạt Organic (ID: 15)</li>
-                            <li>Bơ lạt Anchor nguyên chất (ID: 21)</li>
-                        </ul>
-                    </div>
 
-                    <button class="btn btn-primary" id="btn-buy-recipe-bone" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem; background: #EF4444; border-color: #EF4444; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);">
-                        <i class="fa-solid fa-cart-shopping"></i> Mua Trọn Bộ Nguyên Liệu (393.000đ)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Recipe 2 -->
-            <div class="recipe-card-box" style="border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); background: #FFFFFF; text-align: left;">
-                <div style="height: 180px; position: relative;">
-                    <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_640.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #FFFFFF; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; backdrop-filter: blur(4px);">Món canh thanh lọc</span>
-                </div>
-                <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                    <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary); margin: 0;">Canh Súp Lơ Xanh Trứng Gà Ác</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Sự kết hợp hoàn hảo giữa các dưỡng chất giàu có trong súp lơ xanh baby sần sật và lòng đỏ trứng gà ác hữu cơ béo bùi, mang lại món canh bổ dưỡng, thanh mát.</p>
-                    
-                    <div style="background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 0.8rem; margin: 0.5rem 0;">
-                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase;">Nguyên liệu có sẵn trong cửa hàng:</div>
-                        <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 1.2rem; margin: 0; display: flex; flex-direction: column; gap: 0.2rem;">
-                            <li>Súp lơ xanh baby xuất khẩu (ID: 16)</li>
-                            <li>Trứng gà ác hữu cơ Ba Huân (ID: 18)</li>
-                            <li>Hạt nêm thịt thăn Knorr (ID: 33)</li>
-                        </ul>
-                    </div>
-
-                    <button class="btn btn-primary" id="btn-buy-recipe-canhsuplo" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem; background: #10B981; border-color: #10B981; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);">
-                        <i class="fa-solid fa-cart-shopping"></i> Mua Trọn Bộ Nguyên Liệu (145.000đ)
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- FLOATING PUSH NOTIFICATION SIMULATOR -->
     <div class="push-notification-box" id="promo-notification">
