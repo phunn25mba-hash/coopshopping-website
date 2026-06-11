@@ -46,10 +46,10 @@
 
             <!-- Desktop Navigation Links (Kingfoodmart style) -->
             <nav class="header-nav-links">
-                <a href="#products-section" class="nav-item-link">Cẩm nang</a>
+                <a href="#" class="nav-item-link" id="recipes-link">Cẩm nang</a>
                 <a href="#products-section" class="nav-item-link">Siêu thị</a>
-                <a href="#products-section" class="nav-item-link">Khuyến mãi</a>
-                <a href="#products-section" class="nav-item-link">Thành viên</a>
+                <a href="#category-block-all" class="nav-item-link">Khuyến mãi</a>
+                <a href="#" class="nav-item-link" id="loyalty-link">Thành viên</a>
             </nav>
 
             <span class="header-divider">|</span>
@@ -57,11 +57,23 @@
             <!-- Action buttons (Kingfoodmart style with labels) -->
             <div class="nav-actions">
                 <!-- Account Button -->
-                <button class="action-btn" id="account-btn" title="Tài khoản cá nhân" onclick="alert('Chào mừng bạn đến với chương trình thành viên Co.opShopping!')">
+                <button class="action-btn" id="account-btn" title="Tài khoản cá nhân" onclick="document.getElementById('loyalty-link').click()">
                     <i class="fa-regular fa-user action-icon"></i>
                     <div class="action-text-group">
-                        <span class="action-text-top">Đăng nhập</span>
+                        <span class="action-text-top">Thành viên</span>
                         <span class="action-text-bottom">Tài khoản</span>
+                    </div>
+                </button>
+
+                <!-- Wishlist Button -->
+                <button class="action-btn" id="wishlist-toggle-btn" title="Danh sách yêu thích">
+                    <div class="action-icon-wrapper">
+                        <i class="fa-regular fa-heart action-icon" id="wishlist-icon-header"></i>
+                        <span class="cart-badge" id="wishlist-badge" style="display: none; background: #EF4444;">0</span>
+                    </div>
+                    <div class="action-text-group">
+                        <span class="action-text-top">Yêu thích</span>
+                        <span class="action-text-bottom">Sản phẩm</span>
                     </div>
                 </button>
 
@@ -384,6 +396,71 @@
                 <p style="font-size: 0.75rem; text-align: right; color: var(--text-muted); margin-top: 0.5rem; font-style: italic;">
                     Bạn sẽ tích thêm <strong id="earned-points" style="color: var(--accent-primary);">0</strong> điểm thành viên từ đơn hàng này.
                 </p>
+
+                <!-- CHECKOUT QUICK SETUP (Address Book, Time Scheduling, Payment) -->
+                <div id="cart-checkout-setup" style="margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                    <!-- Address Book Section -->
+                    <div class="checkout-setup-section" id="cart-delivery-section">
+                        <div class="loyalty-title" style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; font-weight: bold; font-size: 0.85rem; color: var(--text-primary);">
+                            <i class="fa-solid fa-location-dot" style="color: var(--accent-primary);"></i>
+                            <span>Địa chỉ nhận hàng</span>
+                        </div>
+                        <div class="address-book-wrapper" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <select id="checkout-address-select" style="width:100%; padding:0.6rem; border:1px solid var(--border-color); border-radius:var(--border-radius-sm); font-size:0.85rem; outline:none; background:#F8FAFC;">
+                                <option value="131 Điện Biên Phủ, Phường Gia Định, Quận Bình Thạnh, TP. Hồ Chí Minh">Nhà riêng: 131 Điện Biên Phủ, Bình Thạnh</option>
+                                <option value="Landmark 81, Phường 22, Quận Bình Thạnh, TP. Hồ Chí Minh">Cơ quan: Landmark 81, Bình Thạnh</option>
+                            </select>
+                            <!-- Form to add new address -->
+                            <div class="add-address-input-box" id="add-address-input-box" style="display:none; gap:0.5rem; margin-top:0.25rem;">
+                                <input type="text" id="new-address-input" placeholder="Nhập địa chỉ mới..." style="flex:1; padding:0.5rem; border:1px solid var(--border-color); border-radius:var(--border-radius-sm); font-size:0.8rem; outline:none;">
+                                <button type="button" class="btn btn-primary" id="btn-save-new-address" style="padding:0.5rem; font-size:0.8rem; justify-content:center; border:none; height:auto; width:auto;">Lưu</button>
+                            </div>
+                            <a href="#" id="toggle-add-address-btn" style="font-size:0.75rem; color:var(--accent-secondary); font-weight:bold; text-decoration:none; display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-plus"></i> Thêm địa chỉ mới</a>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Scheduling Section -->
+                    <div class="checkout-setup-section" id="cart-time-section">
+                        <div class="loyalty-title" style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; font-weight: bold; font-size: 0.85rem; color: var(--text-primary);">
+                            <i class="fa-solid fa-clock" style="color: var(--accent-primary);"></i>
+                            <span>Thời gian nhận hàng</span>
+                        </div>
+                        <div class="delivery-time-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                            <div class="delivery-time-card selected" id="time-fast-card" style="border: 2px solid var(--accent-primary); background: rgba(56, 189, 248, 0.04); border-radius: var(--border-radius-sm); padding: 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s;">
+                                <span style="font-size: 0.8rem; font-weight: bold; color: var(--accent-secondary); display: block;">Hỏa tốc 36'</span>
+                                <span style="font-size: 0.65rem; color: var(--text-muted);">Giao ngay</span>
+                            </div>
+                            <div class="delivery-time-card" id="time-schedule-card" style="border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s;">
+                                <span style="font-size: 0.8rem; font-weight: bold; color: var(--text-primary); display: block;">Hẹn giờ giao</span>
+                                <span style="font-size: 0.65rem; color: var(--text-muted);">Chọn khung giờ</span>
+                            </div>
+                        </div>
+                        <div id="checkout-time-slot-box" style="display: none; margin-top: 0.5rem;">
+                            <select id="checkout-time-slot-select" style="width:100%; padding:0.6rem; border:1px solid var(--border-color); border-radius:var(--border-radius-sm); font-size:0.85rem; outline:none; background:#F8FAFC;">
+                                <option value="17:00 - 18:00 (Hôm nay)">17:00 - 18:00 (Hôm nay)</option>
+                                <option value="18:00 - 19:00 (Hôm nay)">18:00 - 19:00 (Hôm nay)</option>
+                                <option value="19:00 - 20:00 (Hôm nay)">19:00 - 20:00 (Hôm nay)</option>
+                                <option value="08:00 - 09:00 (Ngày mai)">08:00 - 09:00 (Ngày mai)</option>
+                                <option value="09:00 - 10:00 (Ngày mai)">09:00 - 10:00 (Ngày mai)</option>
+                                <option value="10:00 - 11:00 (Ngày mai)">10:00 - 11:00 (Ngày mai)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Section -->
+                    <div class="checkout-setup-section" id="cart-payment-section">
+                        <div class="loyalty-title" style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; font-weight: bold; font-size: 0.85rem; color: var(--text-primary);">
+                            <i class="fa-solid fa-credit-card" style="color: var(--accent-primary);"></i>
+                            <span>Phương thức thanh toán</span>
+                        </div>
+                        <select id="checkout-payment-select" style="width:100%; padding:0.6rem; border:1px solid var(--border-color); border-radius:var(--border-radius-sm); font-size:0.85rem; outline:none; background:#F8FAFC;">
+                            <option value="COD">Thanh toán tiền mặt (COD)</option>
+                            <option value="MOMO">Ví MoMo (QR Code động)</option>
+                            <option value="ZALOPAY">Ví ZaloPay (QR Code động)</option>
+                            <option value="VIETQR">Chuyển khoản Ngân hàng (VietQR)</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -478,7 +555,7 @@
                     <ul class="footer-links">
                         <li><a href="#hero">Trang chủ</a></li>
                         <li><a href="#products-section">Gian hàng khuyến mãi</a></li>
-                        <li><a href="#hero">Hệ thống cửa hàng</a></li>
+                        <li><a href="https://co-opmart.com.vn/he-thong-sieu-thi" target="_blank" rel="noopener noreferrer">Hệ thống cửa hàng</a></li>
                     </ul>
                 </div>
                 
@@ -550,8 +627,267 @@
             <!-- Populated dynamically by main.js -->
         </div>
     </div>
+    <!-- WISHLIST DRAWER -->
+    <div class="cart-drawer-overlay" id="wishlist-overlay"></div>
+    <div class="cart-drawer" id="wishlist-drawer" role="dialog" aria-modal="true" aria-labelledby="wishlist-title">
+        <div class="cart-drawer-header">
+            <h3 id="wishlist-title">Sản phẩm yêu thích <i class="fa-solid fa-heart" style="color: #EF4444; margin-left: 5px;"></i></h3>
+            <button class="cart-close-btn" id="wishlist-close-btn" aria-label="Đóng danh sách yêu thích">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="cart-drawer-body" id="wishlist-drawer-body">
+            <!-- Populated dynamically by main.js -->
+        </div>
+    </div>
 
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="cart-drawer-overlay" id="product-detail-overlay" style="z-index: 1100;"></div>
+    <div class="product-detail-modal" id="product-detail-modal" role="dialog" aria-modal="true" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 900px; max-height: 90vh; background: #FFFFFF; border-radius: var(--border-radius); box-shadow: 0 20px 50px rgba(0,0,0,0.15); z-index: 1200; overflow-y: auto; padding: 2rem;">
+        <button class="modal-close-btn" id="product-detail-close-btn" aria-label="Đóng chi tiết sản phẩm" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: color var(--transition-fast);"><i class="fa-solid fa-xmark"></i></button>
+        <div class="product-detail-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+            <!-- Left: Image box -->
+            <div class="product-detail-image-sec" style="text-align: center; background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 1.5rem; display: flex; align-items: center; justify-content: center; position: relative;">
+                <img id="detail-image" src="" alt="" style="max-width: 100%; max-height: 350px; object-fit: contain; border-radius: var(--border-radius-sm);">
+                <span class="product-badge-tag" id="detail-badge" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 700;"></span>
+            </div>
+            <!-- Right: Details -->
+            <div class="product-detail-info-sec" style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                <span class="product-unit-text" id="detail-brand-standard" style="font-weight: 700; color: var(--accent-primary); letter-spacing: 0.05em; text-transform: uppercase;"></span>
+                <h2 id="detail-name" style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin: 0;"></h2>
+                <div class="detail-weight-expiry" style="display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <span><i class="fa-solid fa-weight-scale" style="margin-right: 4px;"></i> <b>Trọng lượng:</b> <span id="detail-weight"></span></span>
+                    <span><i class="fa-regular fa-calendar-check" style="margin-right: 4px;"></i> <b>Hạn dùng:</b> <span id="detail-expiry"></span></span>
+                </div>
+                <div class="product-price-box" style="margin: 0.5rem 0; align-items: baseline;">
+                    <span class="product-price-current" id="detail-price-current" style="font-size: 2rem; font-weight: 800; color: #EF4444;"></span>
+                    <span class="product-price-original" id="detail-price-original" style="font-size: 1.1rem; text-decoration: line-through; color: var(--text-muted); margin-left: 1rem; display: none;"></span>
+                    <span id="detail-savings" style="margin-left: 1rem; font-size: 0.85rem; font-weight: 700; color: #10B981; background: rgba(16,185,129,0.08); padding: 0.25rem 0.5rem; border-radius: 4px; display: none;"></span>
+                </div>
+                <p id="detail-nutrition" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;"></p>
+                <div class="detail-recipes-box" style="background: rgba(56, 189, 248, 0.04); border: 1px solid rgba(56, 189, 248, 0.1); border-radius: var(--border-radius-sm); padding: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-secondary); text-transform: uppercase; letter-spacing: 0.05em;"><i class="fa-solid fa-utensils"></i> Gợi ý chế biến món ngon</span>
+                    <div id="detail-recipes" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
+                </div>
+                <button class="btn btn-primary" id="detail-add-to-cart-btn" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.05rem; margin-top: auto;">
+                    <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
+                </button>
+            </div>
+        </div>
+        
+        <!-- Bottom: Customer Reviews Section -->
+        <div class="product-detail-reviews-sec" style="margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;"><i class="fa-regular fa-comments"></i> Khách hàng nhận xét</h3>
+            <div class="reviews-layout" style="display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 2rem;">
+                <!-- Left: Add review form -->
+                <div class="add-review-box" style="background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 1.5rem; text-align: left;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Viết đánh giá của bạn</h4>
+                    <form id="add-review-form" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.85rem; color: var(--text-secondary);">Chọn xếp hạng:</span>
+                            <div class="star-rating-select" id="review-stars-select" style="display: flex; gap: 4px; font-size: 1.2rem; color: #E2E8F0; cursor: pointer;">
+                                <i class="fa-solid fa-star" data-value="1"></i>
+                                <i class="fa-solid fa-star" data-value="2"></i>
+                                <i class="fa-solid fa-star" data-value="3"></i>
+                                <i class="fa-solid fa-star" data-value="4"></i>
+                                <i class="fa-solid fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        <input type="text" id="review-username-input" placeholder="Tên của bạn" style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); font-size: 0.85rem; outline: none;" required>
+                        <textarea id="review-comment-input" placeholder="Chia sẻ cảm nhận thực tế của bạn về sản phẩm..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); font-size: 0.85rem; min-height: 80px; resize: vertical; outline: none;" required></textarea>
+                        
+                        <!-- Image attach selection -->
+                        <div class="attach-photo-box" style="display: flex; flex-direction: column; gap: 0.4rem;">
+                            <span style="font-size: 0.85rem; color: var(--text-secondary);">Đính kèm ảnh sản phẩm thực tế:</span>
+                            <div class="review-image-options" style="display: flex; gap: 0.5rem;">
+                                <div class="review-img-option selected" data-photo="" style="width: 50px; height: 50px; border: 2px solid var(--accent-primary); border-radius: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; background: #FFFFFF;"><i class="fa-solid fa-ban" style="color: var(--text-muted);"></i></div>
+                                <div class="review-img-option" data-photo="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=150&q=80" style="width: 50px; height: 50px; border: 2px solid transparent; border-radius: 4px; overflow: hidden; cursor: pointer;"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=60&q=60" style="width:100%; height:100%; object-fit:cover;"></div>
+                                <div class="review-img-option" data-photo="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=150&q=80" style="width: 50px; height: 50px; border: 2px solid transparent; border-radius: 4px; overflow: hidden; cursor: pointer;"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=60&q=60" style="width:100%; height:100%; object-fit:cover;"></div>
+                                <div class="review-img-option" data-photo="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=150&q=80" style="width: 50px; height: 50px; border: 2px solid transparent; border-radius: 4px; overflow: hidden; cursor: pointer;"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=60&q=60" style="width:100%; height:100%; object-fit:cover;"></div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem;">Gửi nhận xét</button>
+                    </form>
+                </div>
+                <!-- Right: Reviews list -->
+                <div class="reviews-list-container" id="detail-reviews-list" style="display: flex; flex-direction: column; gap: 1rem; max-height: 350px; overflow-y: auto; padding-right: 0.5rem; text-align: left;">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- VIETQR DYNAMIC PAYMENT CODE MODAL -->
+    <div class="cart-drawer-overlay" id="qr-payment-overlay" style="z-index: 1300;"></div>
+    <div class="qr-payment-modal" id="qr-payment-modal" role="dialog" aria-modal="true" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 95%; max-width: 450px; background: #FFFFFF; border-radius: var(--border-radius); box-shadow: 0 20px 50px rgba(0,0,0,0.2); z-index: 1400; padding: 2rem; text-align: center;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">Thanh Toán Đơn Hàng</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Quét mã QR bằng ứng dụng ngân hàng hoặc ví điện tử của bạn để thanh toán</p>
+        
+        <div class="qr-code-box" style="margin: 1.5rem auto; width: 220px; height: 220px; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; position: relative;">
+            <img id="vietqr-image-src" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://coopshopping-website.vercel.app/payment" alt="VietQR Code" style="width: 100%; height: 100%;">
+            <div style="position: absolute; width: 40px; height: 40px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; border: 1px solid #E2E8F0;">
+                <img src="assets/images/logo.png" style="width: 80%; height: auto;">
+            </div>
+        </div>
+
+        <div style="background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 0.8rem; margin-bottom: 1.5rem;">
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Số tiền thanh toán</div>
+            <div id="qr-payment-amount" style="font-size: 1.8rem; font-weight: 800; color: #EF4444; margin: 0.2rem 0;">0đ</div>
+            <div id="qr-payment-order-id" style="font-size: 0.75rem; color: var(--text-secondary); font-family: monospace; font-weight: bold;">Mã đơn: COOP-XXXXXX</div>
+        </div>
+
+        <!-- Countdown timer -->
+        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i class="fa-regular fa-clock" style="color: #EF4444;"></i>
+            <span>Giao dịch hết hạn sau:</span>
+            <span id="qr-countdown" style="font-weight: bold; color: #EF4444; font-family: monospace;">10:00</span>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+            <button class="btn btn-secondary" id="qr-cancel-btn" style="flex: 1; justify-content: center; padding: 0.8rem;">Hủy giao dịch</button>
+            <button class="btn btn-primary" id="qr-success-btn" style="flex: 1.5; justify-content: center; padding: 0.8rem; background: #10B981; border-color: #10B981; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);">Đã thanh toán</button>
+        </div>
+    </div>
+
+    <!-- LOYALTY DASHBOARD MODAL -->
+    <div class="cart-drawer-overlay" id="loyalty-overlay" style="z-index: 1100;"></div>
+    <div class="product-detail-modal" id="loyalty-modal" role="dialog" aria-modal="true" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 650px; background: #FFFFFF; border-radius: var(--border-radius); box-shadow: 0 20px 50px rgba(0,0,0,0.15); z-index: 1200; padding: 2rem; overflow-y: auto; max-height: 90vh;">
+        <button class="modal-close-btn" id="loyalty-close-btn" aria-label="Đóng bảng thành viên" style="position: absolute; top: 1rem; right: 1rem; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>
+        
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.2rem;"><i class="fa-solid fa-crown" style="color: #FBBF24;"></i> Điểm Thưởng Thành Viên</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Tích điểm thông minh - Đổi quà cực đã cùng Co.opshopping</p>
+        </div>
+
+        <!-- Member profile block -->
+        <div style="background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%); border-radius: var(--border-radius); padding: 1.5rem; color: #FFFFFF; position: relative; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2); text-align: left;">
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 2;">
+                <div style="width: 60px; height: 60px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.4); background: #FFFFFF; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div>
+                    <h4 style="font-size: 1.15rem; font-weight: 700; margin: 0;">Khách hàng thân thiết</h4>
+                    <span id="loyalty-tier-badge" style="font-size: 0.7rem; font-weight: 800; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); padding: 0.15rem 0.5rem; border-radius: 10px; margin-top: 0.2rem; display: inline-block; text-transform: uppercase; letter-spacing: 0.05em;">Hạng Bạc</span>
+                </div>
+                <div style="margin-left: auto; text-align: right;">
+                    <div style="font-size: 0.75rem; opacity: 0.85;">Điểm tích lũy</div>
+                    <div id="loyalty-points-balance" style="font-size: 2.2rem; font-weight: 800; line-height: 1;">120</div>
+                </div>
+            </div>
+            
+            <!-- Progress bar to next tier -->
+            <div style="margin-top: 1.5rem; position: relative; z-index: 2;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.3rem; opacity: 0.9;">
+                    <span id="loyalty-progress-text">Cần tích lũy thêm 380 điểm để lên hạng Vàng</span>
+                    <span id="loyalty-progress-percent">24%</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.25); border-radius: 4px; overflow: hidden;">
+                    <div id="loyalty-progress-fill" style="width: 24%; height: 100%; background: #FFFFFF; border-radius: 4px; transition: width 0.5s ease;"></div>
+                </div>
+            </div>
+            <div style="position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.08; pointer-events: none;"><i class="fa-solid fa-gem"></i></div>
+        </div>
+
+        <!-- Redemption section -->
+        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; text-align: left;"><i class="fa-solid fa-gift" style="color: #EF4444;"></i> Đổi quà hấp dẫn từ điểm thành viên</h4>
+        <div class="rewards-shop-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;">
+            <!-- Reward 1: Coupon 20k -->
+            <div class="reward-item-card" style="border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; background: #F8FAFC;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-secondary); text-transform: uppercase;">Mã giảm giá</div>
+                <h5 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin: 0;">Voucher 20.000đ</h5>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Áp dụng cho mọi đơn hàng từ 150k tại Co.opshopping</p>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px dashed var(--border-color);">
+                    <span style="font-size: 0.9rem; font-weight: bold; color: var(--text-secondary);"><i class="fa-solid fa-crown" style="color:#FBBF24; font-size:0.75rem;"></i> 50 điểm</span>
+                    <button class="btn btn-secondary" id="btn-redeem-v20" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; border-radius: 4px; border: none; font-weight: bold;">Đổi quà</button>
+                </div>
+            </div>
+            <!-- Reward 2: Freeship -->
+            <div class="reward-item-card" style="border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; background: #F8FAFC;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-secondary); text-transform: uppercase;">Mã giảm giá</div>
+                <h5 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin: 0;">Mã Miễn Phí Vận Chuyển</h5>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Miễn phí ship (25k) cho bất kỳ đơn hàng nào</p>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px dashed var(--border-color);">
+                    <span style="font-size: 0.9rem; font-weight: bold; color: var(--text-secondary);"><i class="fa-solid fa-crown" style="color:#FBBF24; font-size:0.75rem;"></i> 30 điểm</span>
+                    <button class="btn btn-secondary" id="btn-redeem-free" style="padding: 0.35rem 0.75rem; font-size: 0.75rem; border-radius: 4px; border: none; font-weight: bold;">Đổi quà</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RECIPES BLOG DRAWER (Cẩm nang nấu ăn) -->
+    <div class="cart-drawer-overlay" id="recipes-overlay"></div>
+    <div class="cart-drawer" id="recipes-drawer" role="dialog" aria-modal="true" aria-labelledby="recipes-title" style="width: 100%; max-width: 550px;">
+        <div class="cart-drawer-header">
+            <h3 id="recipes-title"><i class="fa-solid fa-book-open" style="color: var(--accent-primary); margin-right: 6px;"></i> Cẩm Nang Nội Trợ</h3>
+            <button class="cart-close-btn" id="recipes-close-btn" aria-label="Đóng cẩm nang nấu ăn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="cart-drawer-body" id="recipes-drawer-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem; overflow-y: auto;">
+            <!-- Recipe 1 -->
+            <div class="recipe-card-box" style="border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); background: #FFFFFF; text-align: left;">
+                <div style="height: 180px; position: relative;">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #FFFFFF; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; backdrop-filter: blur(4px);">Món ăn chính</span>
+                </div>
+                <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary); margin: 0;">Bò Né Cà Chua Beef & Bơ Lạt</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Thịt bò Mỹ béo ngậy được nướng chín tới trên chảo gang với bơ lạt Anchor và nước sốt cà chua beef đậm vị, ăn kèm bánh mì giòn tan tuyệt vời.</p>
+                    
+                    <div style="background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 0.8rem; margin: 0.5rem 0;">
+                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase;">Nguyên liệu có sẵn trong cửa hàng:</div>
+                        <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 1.2rem; margin: 0; display: flex; flex-direction: column; gap: 0.2rem;">
+                            <li>Thịt thăn bò Mỹ Premium (ID: 1)</li>
+                            <li>Cà chua Beef Đà Lạt Organic (ID: 15)</li>
+                            <li>Bơ lạt Anchor nguyên chất (ID: 21)</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-primary" id="btn-buy-recipe-bone" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem; background: #EF4444; border-color: #EF4444; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);">
+                        <i class="fa-solid fa-cart-shopping"></i> Mua Trọn Bộ Nguyên Liệu (393.000đ)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recipe 2 -->
+            <div class="recipe-card-box" style="border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); background: #FFFFFF; text-align: left;">
+                <div style="height: 180px; position: relative;">
+                    <img src="https://images.unsplash.com/photo-1568584269604-55860b8d8569?auto=format&fit=crop&w=400&q=80" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #FFFFFF; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; backdrop-filter: blur(4px);">Món canh thanh lọc</span>
+                </div>
+                <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary); margin: 0;">Canh Súp Lơ Xanh Trứng Gà Ác</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin: 0;">Sự kết hợp hoàn hảo giữa các dưỡng chất giàu có trong súp lơ xanh baby sần sật và lòng đỏ trứng gà ác hữu cơ béo bùi, mang lại món canh bổ dưỡng, thanh mát.</p>
+                    
+                    <div style="background: #F8FAFC; border-radius: var(--border-radius-sm); padding: 0.8rem; margin: 0.5rem 0;">
+                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase;">Nguyên liệu có sẵn trong cửa hàng:</div>
+                        <ul style="font-size: 0.8rem; color: var(--text-secondary); padding-left: 1.2rem; margin: 0; display: flex; flex-direction: column; gap: 0.2rem;">
+                            <li>Súp lơ xanh baby xuất khẩu (ID: 16)</li>
+                            <li>Trứng gà ác hữu cơ Ba Huân (ID: 18)</li>
+                            <li>Hạt nêm thịt thăn Knorr (ID: 33)</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-primary" id="btn-buy-recipe-canhsuplo" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem; background: #10B981; border-color: #10B981; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);">
+                        <i class="fa-solid fa-cart-shopping"></i> Mua Trọn Bộ Nguyên Liệu (145.000đ)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING PUSH NOTIFICATION SIMULATOR -->
+    <div class="push-notification-box" id="promo-notification">
+        <div class="push-notif-avatar">
+            <img src="assets/images/logo.png" alt="CoopShopping Logo" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+        <div class="push-notif-body" style="text-align: left;">
+            <div class="push-notif-title">Thông báo Co.opshopping</div>
+            <div class="push-notif-desc" id="promo-notification-text">Hệ thống đang tải thông tin ưu đãi mới nhất...</div>
+        </div>
+        <button class="push-notif-close" id="promo-notification-close" aria-label="Đóng thông báo"><i class="fa-solid fa-xmark"></i></button>
+    </div>
 
     <!-- JS Scripts -->
     <script src="js/main.js"></script>
